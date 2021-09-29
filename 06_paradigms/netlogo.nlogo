@@ -1,3 +1,3 @@
 to go
-  write "hello world"
+  write "Hello, world!"
 end
