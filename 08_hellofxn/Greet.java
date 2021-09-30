@@ -1,3 +1,7 @@
+//Kevin Li
+//APCS
+//HW8 -- Write a function called greet that gives a greeting to 3 hardcoded people, and call it in main
+//2021-09-30
 public class Greet {
 	public static void main(String[] args){
 		greet();
