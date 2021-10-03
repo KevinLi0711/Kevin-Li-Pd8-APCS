@@ -12,11 +12,8 @@
 //the parameter makes it seem like that's how the function is called: it requires a string
 public class Greet {
 	public static void main(String[] args){
-		greet("Jacob");
-		greet("Nina");
-		greet("Oscar");
+		BigSib.greet("Jacob");
+		BigSib.greet("Nina");
+		BigSib.greet("Oscar");
 	}
-	public static void greet(String name){
-		System.out.println("Why, hello there, " + name + "How do you do?");
-		}
 }
