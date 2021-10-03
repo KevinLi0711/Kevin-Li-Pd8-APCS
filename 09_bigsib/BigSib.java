@@ -1,5 +1,5 @@
 //Cool Computers: Kevin Li, Lauren, Gloria
-//Duckies: Flounder, Kirby, 
+//Duckies: Flounder, Kirby, Bo
 //APCS
 //HW9 -- Write class BigSib to call it in Greet.java to have the same output as before
 //2021-10-03
