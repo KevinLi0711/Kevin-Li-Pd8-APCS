@@ -1,4 +1,4 @@
-//Kevin Li and Kirby
+//Kevin Li. Trio plus 1, and Kirby
 //APCS
 //HW9 -- Write class BigSib to call it in Greet.java to have the same output as before
 //2021-10-03
