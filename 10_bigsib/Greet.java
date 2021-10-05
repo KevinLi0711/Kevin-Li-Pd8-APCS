@@ -12,8 +12,8 @@
 //the parameter makes it seem like that's how the function is called: it requires a string
 public class Greet {
 	public static void main(String[] args){
-		System.out.println(BigSib.greet("Jacob"));
-		System.out.println(BigSib.greet("Nina"));
-		System.out.println(BigSib.greet("Oscar"));
+		System.out.println(BigSib.greet("Kevin"));
+		System.out.println(BigSib.greet("Lauren"));
+		System.out.println(BigSib.greet("Gloria"));
 	}
 }
