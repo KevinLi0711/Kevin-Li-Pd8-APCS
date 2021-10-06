@@ -1,4 +1,4 @@
-/*Kevin Li and Gabriel Thompson
+/*Team GTKL (Kevin Li + Kirby and Gabriel Thompson + Iggy)
 APCS
 HW12 -- Create a BigSib class that you can then use to create BigSibs with individual greetings
 2021-10-5
