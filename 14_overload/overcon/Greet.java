@@ -1,7 +1,7 @@
 /*Team Duck Trio (Kevin Li, Gloria, Hamim)
 APCS
 HW14 -- add a second BigSib constructor that takes no parameters and modify the first so it only takes one parameter
-2021-10-06
+2021-10-07
 */
 /*
 DISCO:
