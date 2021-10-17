@@ -9,6 +9,14 @@
 //   We thought it'd just return an empty string
 //QCC:
 // - Is it better to name parameters and instance variables different names, or it it ok to use the same name if it's for better clarity?
+// - I found this part in the textbook for the summer hw. It is referring to the use of == to compare Strings 
+//      This code compiles and runs, and most of the time it gets the answer right. But it is not correct, 
+//      and sometimes it gets the answer wrong. The problem is that the == operator checks whether the two 
+//      variables refer to the same object (by comparing the references). If you give it two different strings 
+//      that contain the same letters, it yields false.
+//   We originally used == for comparison in showAccountInfo, but I changed it after reading this. But == was working before, so in what scenario
+//   would == return an error for showAccountInfo
+//   
 //Team KLEH’s Latest and Greatest Q2 Response:
 //Team KLEH’s Latest and Greatest Q3 Response:
 
@@ -38,13 +46,17 @@ public class BankAccount{
     }
 
     public String setPIN(String fourDigitPIN){
-        PIN = fourDigitPIN;
-        return PIN;
+        if (checkDigits(fourDigitPIN, 4)) {
+            PIN = fourDigitPIN;
+            return PIN;
+        }else return "Invalid PIN";
     }
 
     public String setAccountNumber(String nineDigitNumber){
-        accountNumber = nineDigitNumber;
-        return accountNumber;
+        if (checkDigits(nineDigitNumber, 9)) {
+            accountNumber = nineDigitNumber;
+            return accountNumber;
+        }else return "Invalid number";
     }
 
     public double setBalance(double balance){
@@ -60,19 +72,34 @@ public class BankAccount{
         balance = balance + money;
     }
 
-	public void showAccountInfo(String accountNumber, String username,String password){
-		if ( (this.accountNumber == accountNumber) && (this.username == username) && (this.password == password) ) {
-			System.out.println("account number: " + accountNumber);
-                        System.out.println("PIN: " + PIN);
-                        System.out.println("username: " + username);
-                        System.out.println("password: " + password);
-                        System.out.println("balance: " + balance);
-		}
-        else System.out.println("Incorrect username or password");
-	}
+	public void showAccountInfo(String accountNumber, String PIN, String username,String password){
+		if ((this.accountNumber == accountNumber) && 
+            (this.username == username) && 
+            (this.password == password) &&
+            (this.PIN == PIN)
+            ) {
+			    System.out.println("account number: " + this.accountNumber);
+                    System.out.println("PIN: " + this.PIN);
+                    System.out.println("username: " + this.username);
+                    System.out.println("password: " + this.password);
+                    System.out.println("balance: " + this.balance);
+            } else System.out.println("Incorrect or invalid credentials");
+    }
+
+    public static boolean checkDigits(String number, int digits){
+        Double doubleNumber = Double.parseDouble(number);
+        Double reducedNumber = doubleNumber / (Math.pow(10, digits));
+        String format = "%." + digits + "f";
+        String formattedNumber = String.format(format, reducedNumber);
+        String decimalNumber = "0." + number;
+        
+        if (decimalNumber.equals(formattedNumber)){
+            return true;
+        } else return false;
+    }
 
     public static void main(String args[]){
-        BankAccount KLEHBank = new BankAccount("KLEH", "duckies", "1234", "000111222", 100);
-        KLEHBank.showAccountInfo("000111222", "KLEH", "duckies");
+        BankAccount KLEHBank = new BankAccount("KLEH", "duckies", "5234", "000111222", 100);
+        KLEHBank.showAccountInfo("000111222", "5234", "KLEH", "duckies");
 	}
 }
