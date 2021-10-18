@@ -17,8 +17,12 @@
 //   We originally used == for comparison in showAccountInfo, but I changed it after reading this. But == was working before, so in what scenario
 //   would == return an error for showAccountInfo
 //   
-//Team KLEH’s Latest and Greatest Q2 Response:
-//Team KLEH’s Latest and Greatest Q3 Response:
+//Team KLEH’s Latest and Greatest Q2 Response: 
+// In the BigSib.java files, we were able to create an instance of richard using BigSib richard = new BigSib();
+// before we wrote a constructor to say what should happen as soon as richard is created. The default constructor has no parameters 
+// and does nothing upon creation of an object
+//Team KLEH’s Latest and Greatest Q3 Response: 
+// We can do System.out.println(KLEHBank.toString()); which prints out BankAccount@1c53fd30
 
 public class BankAccount{
 	private double balance;
@@ -101,5 +105,7 @@ public class BankAccount{
     public static void main(String args[]){
         BankAccount KLEHBank = new BankAccount("KLEH", "duckies", "5234", "000111222", 100);
         KLEHBank.showAccountInfo("000111222", "5234", "KLEH", "duckies");
+
+        System.out.println(KLEHBank.toString());
 	}
 }
