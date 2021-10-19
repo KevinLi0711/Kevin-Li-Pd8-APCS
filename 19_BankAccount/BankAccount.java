@@ -83,7 +83,17 @@ public class BankAccount {
       retStr = retStr + "\n=======================";
       return retStr;
     }
-  
+
+    public boolean authenticate(String username, String password){
+        if ( ( username.equals(name) ) && ( password.equals(passwd) ) ) {
+            System.out.println("Valid username and password");
+            return true;
+        }
+        else {
+            System.out.println("Invalid username or password");
+            return false;
+        }
+    }
   
     //main method for testing
     public static void main( String[] args ) {
@@ -97,6 +107,7 @@ public class BankAccount {
         ba.withdraw(100);
         String accInfoBa = ba.toString();
         System.out.println(accInfoBa);
+        ba.authenticate("ba", "password");
 
         BankAccount ma = new BankAccount();
         ma.setName("ma");
@@ -108,6 +119,7 @@ public class BankAccount {
         ma.withdraw(800);
         String accInfoMa = ma.toString();
         System.out.println(accInfoMa);
+        ma.authenticate("not ma", "not password");
     }//end main()
   
   }//end class BankAccount
