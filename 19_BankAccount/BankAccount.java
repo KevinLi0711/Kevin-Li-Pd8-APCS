@@ -1,3 +1,16 @@
+/*
+Team KLEH: Kevin Li and Eric He
+APCS
+HW19 -- Mo Money Mo Problems ...MORE AWESOME
+2021-10-18
+
+Discoveries:
+
+QCC:
+    - Why do all the mutators return the old values of instance values after changing them?
+      If the mutators will just be called using a dot operator, can't we keep them all as void return types?
+*/
+
 public class BankAccount {
 
     //instance variables
