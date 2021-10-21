@@ -66,7 +66,7 @@ public class Teller{
 		System.out.println(p5.toString());
 
         BankAccount p6 = new BankAccount();
-        p6.setName(ba.setName("abcd"));
+        p6.setName("p6");
         p6.setPin(ba.setPin(0000));
         p6.setPassword(ba.setPassword("abcd"));
         p6.setAccountNumber(ba.setAccountNumber(0));
