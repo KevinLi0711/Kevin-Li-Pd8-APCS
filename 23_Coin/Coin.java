@@ -1,3 +1,5 @@
+import java.util.Random;
+
 /***
  *  class Coin
  *  by Clyde "Thluffy" Sinclair
@@ -11,7 +13,8 @@ public class Coin {
   private double value;
   private int headsCtr;
   private int tailsCtr;
-  private String coinType;
+  private double bias;
+  private String name;
 
 
   /***
@@ -20,7 +23,9 @@ public class Coin {
    *  postcond:
    ***/
   public Coin() {
-
+    bias = 0.5;
+    headsCtr = 0;
+    tailsCtr = 0;
   }
 
 
@@ -36,31 +41,8 @@ public class Coin {
       postcond:
   ***/
   
-  public void setValue( String s ) {
-  	if (s.equals("penny") || s.equals("nickel") || s.equals("dime") || s.equals("quarter") || s.equals("half dollar") || s.equals("dollar")) {
-  		coinType = s;
-  		headsCtr = 0;
-  		tailsCtr = 0;
-  		flipCtr = 0;
-  		
-  		if (s.equals("penny")) {
-			value = 0.01;
-  		} else if (s.equals("nickel")) {
-  			value = 0.05;
-  		} else if (s.equals("dime")) {
-  			value = 0.10;
-  		} else if (s.equals("quarter")) {
-  			value = 0.25;
-  		} else if (s.equals("half dollar")) {
-  			value = 0.50;
-  		} else if (s.equals("dollar")) {
-  			value = 1.00;
-  		}
-  	}
-  }
-  
   public Coin( String s ) {
-  	setValue(s);
+  	assignValue(s);
   }
 
 
@@ -71,7 +53,7 @@ public class Coin {
   ***/
   
   public Coin( String s, String nowFace ) {
-  	setValue(s);
+  	assignValue(s);
   	
   	if (nowFace == "heads") {
   		upFace = "heads";
@@ -126,7 +108,11 @@ public class Coin {
   		value = 0.50;
   	} else if (s.equals("dollar")) {
   		value = 1.00;
-  	}
+  	} else {
+      System.out.println("Error: invalid coin denomination");
+      return 0.0;
+    }
+    name = s;
   	
   	return value;
   }
@@ -152,9 +138,11 @@ public class Coin {
    * Returns "heads" or "tails"
    ***/
   public String flip() {
-
+    if (Math.random() > bias) {
+      return "tails";
+    }
+    else return "heads";
   }
-
 
   /***
    * boolean equals(Coin) -- checks to see if 2 coins have same face up
@@ -163,7 +151,7 @@ public class Coin {
    * or both showing tails. False otherwise.
    ***/
   public boolean equals( Coin other ) {
-
+    return upFace == other.upFace;
   }
 
 
@@ -173,7 +161,7 @@ public class Coin {
    * postcond: Return String comprised of name and current face
    ***/
   public String toString() {
-
+    return name + upFace;
   }
   
 }//end class
