@@ -18,7 +18,6 @@ public class Driver {
 
 
     //test default constructor
-    /*===================TOP==========================
       Coin mine = new Coin();
       //test 1st overloaded constructor
       Coin yours = new Coin( "quarter" );
@@ -34,6 +33,7 @@ public class Driver {
       wayne.flip();
       System.out.println("yours: " + yours);
       System.out.println("wayne: " + wayne);
+    /*===================TOP==========================
       //test equals() method
       if ( yours.equals(wayne) ) {
         System.out.println( "Matchee matchee!" );
