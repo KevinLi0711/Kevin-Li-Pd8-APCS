@@ -1,3 +1,11 @@
+/*
+Team Nepal (Gabriel Thompson + Iggy, Kevin Li + Kirby)
+APCS
+HW23 -- What Does Equality Look Like?
+2021-10-23
+time spent: 
+*/
+
 import java.util.Random;
 
 /***
@@ -23,9 +31,13 @@ public class Coin {
    *  postcond:
    ***/
   public Coin() {
+    name = "quarter";
+    value = 0.25;
+    upFace = "heads";
     bias = 0.5;
     headsCtr = 0;
     tailsCtr = 0;
+    flipCtr = 0;
   }
 
 
@@ -43,6 +55,11 @@ public class Coin {
   
   public Coin( String s ) {
   	assignValue(s);
+        upFace = "heads";
+        bias = 0.5;
+        headsCtr = 0;
+        tailsCtr = 0;
+        flipCtr = 0;
   }
 
 
@@ -62,6 +79,10 @@ public class Coin {
   	} else {
   		System.out.println("Invalid face type: " + nowFace);
   	}
+        bias = 0.5;
+        headsCtr = 0;
+        tailsCtr = 0;
+        flipCtr = 0;
   }
   
   
@@ -139,9 +160,14 @@ public class Coin {
    ***/
   public String flip() {
     if (Math.random() > bias) {
-      return "tails";
+      tailsCtr++;
+      upFace = "tails";
     }
-    else return "heads";
+    else {
+      headsCtr++;
+      upFace = "heads";
+    }
+    return upFace;
   }
 
   /***
@@ -161,7 +187,10 @@ public class Coin {
    * postcond: Return String comprised of name and current face
    ***/
   public String toString() {
-    return name + upFace;
+    String out = "\n";
+    out += "name: " + name + "\n";
+    out += "face: " + upFace + "\n";
+    return out;
   }
   
 }//end class
