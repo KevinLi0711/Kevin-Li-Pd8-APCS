@@ -3,15 +3,23 @@ Team Nepal (Gabriel Thompson + Iggy, Kevin Li + Kirby)
 APCS
 HW23 -- What Does Equality Look Like?
 2021-10-23
-time spent: 
+time spent: 0.6 hours
+
+QCC:
+  - In order to use java.util.Random, we checked the documentaiton which said it required a "seed" which was a long, 
+  and we didn't really know what to write for it. How are we supposed to use java.util.Random?
+  - The function reset() was mentioned in the code outline, but not used in Driver.java, why is this?
+DISCO: 
+  - The documentation for java.util.Random suggested using Math.random, so we went with it instead
+  - The initials of Clyde Sinclair are CS 🤔🤔🤔
 */
 
 import java.util.Random;
 
 /***
  *  class Coin
- *  by Clyde "Thluffy" Sinclair
- *  SKELETON
+ *  by Gabriel Thompson and Kevin Li
+ *  SKELETON't
  ***/
 
 public class Coin {
@@ -145,7 +153,12 @@ public class Coin {
       postcond: Coin's attribs reset to starting vals
   ***/
   public void reset( String s, double d ) {
-
+    if ( (s == "heads") || (s == "tails") ){
+      name = s;
+    }
+    if ( (d >= 0.0) && (d <= 1.0) ) {
+      bias = d;
+    }
   }
 
 
