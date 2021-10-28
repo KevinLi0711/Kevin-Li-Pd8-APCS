@@ -13,7 +13,10 @@ QCC:
     - Is there a way to make a while loop run if the boolean expression returns false?
     - The fact that the assignment said gcd() was supposed to be easy is concerning because it took so much time. What was the easy way?
 ALGO:
-
+    If the inputs a and b are equal, then return a. Otherwise, we test if a is greater than b. 
+    If a is larger, then we set a to the difference between the 2 numbers.
+    If b is larger, then we set b to the difference between the 2 numbers.
+    After changing the value of the larger number, the loop runs again and the loop keeps repeating until a = b 
 */
 public class Stats {
     public static void main( String[] args ) {
