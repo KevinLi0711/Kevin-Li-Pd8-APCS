@@ -1,5 +1,5 @@
 /*
-<Frist> <Lsat>
+Team Placeholder: Nina Jiang + Kevin Li
 APCS
 HW27 -- FOR the Love of Strings
 2021-10-28
@@ -7,8 +7,13 @@ time spent: .7 hours
 
 DISCO:
     - return statements cause a method to stop and cause the code after the return statement to not be run. 
-    This is a reason for the error: Unreachable code and is why recursive loops end with returning a base case
+      This is a reason for the error: Unreachable code and is why recursive loops end with returning a base case
+    - the substring formed from substring(int x, int y), begins with the first letter after the xth letter of the original string, 
+      and ends with the yth letter of the original string 
+    - If x is 0 in substring(int x, int y), then the first letter of the substring is the first letter of the original string
+    - if y is greater than the length of the orignal string, you get an error
 QCC:
+    - 
 */
 public class Rof {
     public static void main(String args[]) {
