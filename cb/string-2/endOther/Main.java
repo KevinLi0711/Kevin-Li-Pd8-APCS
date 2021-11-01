@@ -16,9 +16,12 @@ public class Main {
 
     public static boolean endOther(String a, String b) {
         int shorterLength = Math.min(a.length(), b.length());
+        int aMinusB = a.length() - shorterLength;
+        int bMinusA = b.length() - shorterLength;
         String lowerA = a.toLowerCase();
         String lowerB = b.toLowerCase();
-        if (lowerA.substring(a.length() - shorterLength, a.length()).equals(lowerB.substring(b.length() - shorterLength, b.length()))) {
+        
+        if (lowerA.substring(aMinusB).equals(lowerB.substring(bMinusA))) {
             return true;
         }
         else return false;
