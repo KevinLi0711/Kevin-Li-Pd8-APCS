@@ -34,6 +34,7 @@
 public class Pig
 {
   //Q: How does this initialization make your life easier?
+  //A: We can reference VOWELS in isAVowel. By checking if the inputted letter is included in VOWELS, we can easily check if said letter is a vowel
   private static final String VOWELS = "aeiou";
 
 
