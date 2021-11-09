@@ -2,17 +2,21 @@ public class Pig {
     private static final String VOWELS = "aeiouy";
     private static final String CAPS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     private static final String PUNCS = ".,:;!?";
-
+//Uppercase related methods =====================================
     public static boolean isUpperCase( String letter ) {
         return CAPS.indexOf( letter ) != -1;
     }
 
-    public static boolean isPunc( String symbol ) {
-        return PUNCS.indexOf( symbol ) != -1;
+    public static boolean beginsWithUpper( String w ) {
+        return isUpperCase( w.substring(0,1) );
     }
 
-    public static boolean isAVowel( String letter ) {
-        return VOWELS.indexOf( letter.toLowerCase() ) != -1;
+    public static String capitalize( String w ) {
+        return ( w.substring(0, 1).toUpperCase() + w.substring(1) );
+    }
+//Punctuation related methods =====================================
+    public static boolean isPunc( String symbol ) {
+        return PUNCS.indexOf( symbol ) != -1;
     }
 
     public static boolean hasPunc( String w ) {
@@ -20,11 +24,10 @@ public class Pig {
     }
   
     public static String allPunc( String w ) {
-        String ans = ""; //init return String
-        
+        String ans = ""; 
         for( int i = 0; i < w.length(); i++ ) {
           if ( isPunc( w.substring(i,i+1) ) )
-          ans += w.substring( i, i+1 ); //grow the return String
+          ans += w.substring( i, i+1 ); 
           }
         return ans;
     }
@@ -32,28 +35,11 @@ public class Pig {
     public static int countPunc( String w ) {
         return allPunc(w).length();
     }
-
-    public static boolean beginsWithUpper( String w ) {
-        return isUpperCase( w.substring(0,1) );
+//Vowel related methods =====================================
+    public static boolean isAVowel( String letter ) {
+        return VOWELS.indexOf( letter.toLowerCase() ) != -1;
     }
 
-    public static boolean hasA( String w, String letter ) {
-        return w.indexOf( letter ) != -1;
-    }
-
-    public static boolean hasNonYVowel( String w ) {
-        String x = w.toLowerCase();
-        return ( hasA(x, "a") || hasA(x, "e") || hasA(x, "i") || hasA(x, "o") || hasA(x, "u"));
-    }
-
-    public static boolean yIsVowel( String w ) {
-        return ( hasAVowel(w) && !(hasNonYVowel(w)) );
-    }
-    
-    public static int countVowels( String w ) {
-        return allVowels(w).length();
-    }
-    
     public static boolean hasAVowel( String w ) {
         return countVowels(w) > 0;
     }
@@ -69,6 +55,23 @@ public class Pig {
       return vowels;
     }
 
+    public static int countVowels( String w ) {
+        return allVowels(w).length();
+    }
+
+    public static boolean hasA( String w, String letter ) {
+        return w.indexOf( letter ) != -1;
+    }
+
+    public static boolean hasNonYVowel( String w ) {
+        String x = w.toLowerCase();
+        return ( hasA(x, "a") || hasA(x, "e") || hasA(x, "i") || hasA(x, "o") || hasA(x, "u"));
+    }
+
+    public static boolean yIsVowel( String w ) {
+        return ( hasAVowel(w) && !(hasNonYVowel(w)) );
+    }
+    
     public static String firstVowel( String w ) {
         if ( hasAVowel(w) ) {
             return (allVowels(w).substring(0, 1));
@@ -80,7 +83,7 @@ public class Pig {
         String x = allVowels(w);
 
         for (int i = 0; i < countVowels(w); i++) {
-            if (!(x.substring(i, i + 1).equals("y")) && isAVowel(x.substring(i, i + 1))) {
+            if (!x.substring(i, i + 1).toLowerCase().equals("y") && isAVowel(x.substring(i, i + 1))) {
                 return x.substring(i, i + 1);
             }
         }
@@ -91,16 +94,11 @@ public class Pig {
         return isAVowel( w.substring(0,1) );
     }
 
-
     public static String engToPig( String w ) {
 
         String ans = "";
         int vPos = w.indexOf( firstVowel(w) );
         int vPos2 = w.indexOf( firstNonYVowel(w) );
-
-        if (beginsWithVowel(w) && (firstVowel(w).toLowerCase() != "y")) {
-            return w + "way";
-        }
 
         if (yIsVowel(w)) {
             ans = w.substring(vPos) + w.substring(0,vPos) + "ay";
@@ -108,6 +106,16 @@ public class Pig {
         else {
             ans = w.substring(vPos2) + w.substring(0,vPos2) + "ay";
         }
+
+        if (beginsWithVowel(w) && !(firstVowel(w).toLowerCase().equals("y"))) {
+            return w + "way";
+        }
+
+        if (isUpperCase(w.substring(0, 1))) {
+            ans = ans.toLowerCase();
+            ans = capitalize(ans);
+        }
+
         return ans;
     }
 

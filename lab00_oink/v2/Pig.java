@@ -100,7 +100,7 @@ public class Pig {
         int vPos = w.indexOf( firstVowel(w) );
         int vPos2 = w.indexOf( firstNonYVowel(w) );
 
-        if (beginsWithVowel(w) && (firstVowel(w).toLowerCase() != "y")) {
+        if (beginsWithVowel(w) && !(firstVowel(w).toLowerCase().equals("y"))) {
             return w + "way";
         }
 
