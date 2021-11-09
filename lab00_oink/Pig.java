@@ -91,6 +91,7 @@ public class Pig {
         return isAVowel( w.substring(0,1) );
     }
 
+
     public static String engToPig( String w ) {
 
         String ans = "";
@@ -127,7 +128,6 @@ public class Pig {
             System.out.println( "hasPunc \t" + hasPunc(word));
             System.out.println( "---------------------" );
             System.out.println( "engToPig \t" + engToPig(word) );
-            System.out.println((beginsWithVowel(word) && (firstVowel(word).toLowerCase() != "y")));
             System.out.println( "---------------------" );
     }
 
