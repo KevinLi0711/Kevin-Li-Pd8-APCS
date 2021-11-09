@@ -1,3 +1,4 @@
+//Made engToPig capitalize the first letter of ourput if the first letter of input was capital
 package v3;
 
 public class Pig {
