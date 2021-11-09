@@ -41,14 +41,8 @@ public class Repeater{
 	}
 
 	public static void main(String[] args){
-		System.out.println(fenceR(3));
-		System.out.println(fenceR(1));
-		System.out.println(fenceR(2));
-		System.out.println(fenceR(4));
-
-		System.out.println(fenceW(3));
-		System.out.println(fenceW(1));
-		System.out.println(fenceW(2));
-		System.out.println(fenceW(4));
+		for(String fencePosts : args) {
+			System.out.println(fenceR(Integer.parseInt(fencePosts)));
+		}
 	}
 }

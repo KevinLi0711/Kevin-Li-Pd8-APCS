@@ -20,7 +20,7 @@ public class Driver {
       untilHeads(c1, 2000);
       printSummary(c1);
 
-      untilDivisible(c1, 2005);
+      untilDivisible(c1, c2, 2005);
       printSummary(c1);
 
       untilMatches(c1, c2, 8789);
@@ -49,13 +49,24 @@ public class Driver {
         }
     }
 
-    public static void untilDivisible( Coin c, int birthYear ) {
-        while (c.getFlipCtr() < 65536) {
-            c.flip();
+    public static void untilDivisible( Coin c1, Coin c2, int birthYear ) {
+        int numMatches = 0;
+
+        while (numMatches < 65536) {
+            c1.flip();
+            c2.flip();
+            if ( c1.equals(c2) ) {
+                numMatches++;
+            }
         }
-        while (c.getFlipCtr() % birthYear != 0) {
-            c.flip();
+        while (numMatches % birthYear != 0) {
+            c1.flip();
+            c2.flip();
+            if ( c1.equals(c2) ) {
+                numMatches++;
+            }
         }
+        System.out.println(numMatches + " matches");
     }
 
     public static void untilMatches( Coin c1, Coin c2, int matches) {

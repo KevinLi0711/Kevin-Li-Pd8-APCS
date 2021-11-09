@@ -2,11 +2,16 @@
 
 public class Main {
     public static void main(String[] args) {
+        /*
         System.out.println(countCode("aaacodebbb")); // 1
         System.out.println(checkCo("aaacodebbb", 3));
         System.out.println(checkE("aaacodebbb", 3));
         System.out.println(countCode("codexxcode")); // 2
         System.out.println(countCode("cozexxcope")); // 2
+        */
+        for(String x : args) {
+            System.out.println(checkCo(x, 0));
+        }
     }
 
     /**
@@ -24,8 +29,8 @@ public class Main {
         return codeCount;
     }
 
-    public static boolean checkCo(String str, int letterNum) {
-        if (str.substring(letterNum, letterNum + 2).equals("co")) {
+    public static boolean checkCo(String str, int position) {
+        if (str.substring(position, position + 2).equals("co")) {
             return true;
         } else return false;
     }
