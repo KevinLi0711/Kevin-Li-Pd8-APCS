@@ -96,15 +96,11 @@ public class Pig {
         String ans = "";
         int vPos = w.indexOf( firstVowel(w) );
         int vPos2 = w.indexOf( firstNonYVowel(w) );
-        /*
-        if ( beginsWithVowel(w) )
-        ans = w + "way";
-        else {
-            int vPos = w.indexOf( firstVowel(w) );
-            ans = w.substring(vPos) + w.substring(0,vPos) + "ay";
+
+        if (beginsWithVowel(w) && (firstVowel(w).toLowerCase() != "y")) {
+            return w + "way";
         }
-        return ans;
-        */
+
         if (yIsVowel(w)) {
             ans = w.substring(vPos) + w.substring(0,vPos) + "ay";
         }
@@ -131,6 +127,7 @@ public class Pig {
             System.out.println( "hasPunc \t" + hasPunc(word));
             System.out.println( "---------------------" );
             System.out.println( "engToPig \t" + engToPig(word) );
+            System.out.println((beginsWithVowel(word) && (firstVowel(word).toLowerCase() != "y")));
             System.out.println( "---------------------" );
     }
 

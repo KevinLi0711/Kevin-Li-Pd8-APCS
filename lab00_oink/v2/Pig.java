@@ -93,20 +93,17 @@ public class Pig {
         return isAVowel( w.substring(0,1) );
     }
 
+
     public static String engToPig( String w ) {
 
         String ans = "";
         int vPos = w.indexOf( firstVowel(w) );
         int vPos2 = w.indexOf( firstNonYVowel(w) );
-        /*
-        if ( beginsWithVowel(w) )
-        ans = w + "way";
-        else {
-            int vPos = w.indexOf( firstVowel(w) );
-            ans = w.substring(vPos) + w.substring(0,vPos) + "ay";
+
+        if (beginsWithVowel(w) && (firstVowel(w).toLowerCase() != "y")) {
+            return w + "way";
         }
-        return ans;
-        */
+
         if (yIsVowel(w)) {
             ans = w.substring(vPos) + w.substring(0,vPos) + "ay";
         }
