@@ -1,4 +1,25 @@
-//added scanner and created method that can translate sentences
+/*
+Team KLEH: John Gupta-She, Kevin Li, Eric He
+APCS
+L00 -- Etterbay Odingcay Oughtray Ollaborationcay
+2021-11-9
+time spent:.5 hours on v5, 5 hours total
+DISCO: 
+    - Helper functions are helpful, keeping things organized helps a ton! 
+    - < and > are redirectors, and they can direct text in one file to be process by a scanner
+QCC: N/A
+
+HOW WE UTILIZED SCANNER DEMO (v4): Experimented with the format of demoscanner.java
+WHAT CAUSES RUNTIME ERROR IN THE SCANNER DEMO: the second System.out.println. When it is removed, the error disappears with it.
+Our guess is that running System.out.println( sc.next() ); once clears the queue and either leaves nothing for the second line to print out
+
+NEW IN v1: Combined oink code with given skeletons
+NEW IN v2: Made engToPig consider if y is a vowel when translating
+NEW IN v3: Made engToPig capitalize the first letter of output if the first letter of input was capital
+NEW IN v4: Added scanner and created method that can translate sentences
+NEW IN v5: Accounts for punctuation in phrases
+*/
+
 package v4;
 import java.util.Scanner;
 
@@ -129,7 +150,7 @@ public class Pig {
             ans = ans.toLowerCase();
             ans = capitalize(ans);
         }
-        
+
         if (beginsWithVowel(w) && !(firstVowel(w).toLowerCase().equals("y"))) {
             return w + "way";
         }

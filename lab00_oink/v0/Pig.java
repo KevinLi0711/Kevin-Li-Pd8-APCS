@@ -1,20 +1,24 @@
 package v0;
 /***
- * Team KLEH: Kevin Li and Eric He
- * APCS
- * HW31 -- Counting vowels using methods built from .indexOf()
- * 2021-11-04
- * time spent: .5 hrs
- *
- * DISCO: 
- *  - .indexOf() searches for a substring within a string and gives the position of the first character of the substring
- *  - Position 0 for .indexOf() corresponds to the first character in the string. The second character has a position of 1
- *  - Keyword final prevents you from assigning a value to that method / variable. If you try to compile, you get the error:
- *    cannot assign a value to final variable <varName>
- * 
- * QCC:
- *  - 
- * 
+/*
+Team KLEH: John Gupta-She, Kevin Li, Eric He
+APCS
+L00 -- Etterbay Odingcay Oughtray Ollaborationcay
+2021-11-9
+time spent:.5 hours on v5, 5 hours total
+DISCO: Helper functions are helpful, keeping things organized helps a ton!
+QCC: N/A
+
+HOW WE UTILIZED SCANNER DEMO (v4): Experimented with the format of demoscanner.java
+WHAT CAUSES RUNTIME ERROR IN THE SCANNER DEMO: the second System.out.println. When it is removed, the error disappears with it.
+Our guess is that running System.out.println( sc.next() ); once clears the queue and either leaves nothing for the second line to print out
+
+NEW IN v1: Combined oink code with given skeletons
+NEW IN v2: Made engToPig consider if y is a vowel when translating
+NEW IN v3: Made engToPig capitalize the first letter of output if the first letter of input was capital
+NEW IN v4: Added scanner and created method that can translate sentences
+NEW IN v5: Accounts for punctuation in phrases
+
  * class Pig
  * a Pig Latin translator
  * ~~~~~~~~~~~~~~~~~~~ SKELETON ~~~~~~~~~~~~~~~~~~~
