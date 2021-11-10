@@ -125,13 +125,13 @@ public class Pig {
             ans = w.substring(vPos2) + w.substring(0,vPos2) + "ay";
         }
 
-        if (beginsWithVowel(w) && !(firstVowel(w).toLowerCase().equals("y"))) {
-            return w + "way";
-        }
-
         if (isUpperCase(w.substring(0, 1))) {
             ans = ans.toLowerCase();
             ans = capitalize(ans);
+        }
+        
+        if (beginsWithVowel(w) && !(firstVowel(w).toLowerCase().equals("y"))) {
+            return w + "way";
         }
 
         return ans;
