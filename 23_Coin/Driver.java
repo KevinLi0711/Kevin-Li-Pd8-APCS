@@ -13,10 +13,17 @@
 public class Driver {
 
   public static void main( String[] args ) {
+    Coin drop = new Coin("dime", "heads");
+    Coin dead = new Coin("quarter", "tails");
+    Coin fred = new Coin("dime", "tails");
+    System.out.println( drop == dead );
+    System.out.println( drop == fred );
+    System.out.println( drop.equals(dead) );
+    System.out.println( drop.equals(fred) );
 
     //build Objects from blueprint specified by class Coin
 
-
+/*
     //test default constructor
       Coin mine = new Coin();
       //test 1st overloaded constructor
