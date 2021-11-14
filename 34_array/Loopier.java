@@ -16,29 +16,52 @@ import java.util.Random;
 
 public class Loopier{
     public static Random random = new Random();
-    public static int[] array = new int[5];
 
-    public static void randomIntArray(int[] array) {
-        for(int x = 0; x < array.length; x++) {
-            array[x] = random.nextInt();
+    public static void randomIntArray(int[] a) {
+        for(int x = 0; x < a.length; x++) {
+            a[x] = random.nextInt();
         }
     }
 
-    public static String printArray(int[] array) {
+    public static String printArray(int[] a) {
         String result = "[";
         int x = 0;
 
-        while(x < array.length - 1) {
-            result = result + array[x] + ", ";
+        while(x < a.length - 1) {
+            result = result + a[x] + ", ";
             x++;
         }
-        result = result + array[x] + "]";
+        result = result + a[x] + "]";
         return result;
     }
+
+    public static int linSearch(int[] a, int target) {
+        for(int x = 0; x < a.length; x++) {
+            if (a[x] == target) {
+                return x;
+            }
+        }
+        return -1;
+    }
+
+    public static int linSearchR(int[] a, int target) {
+        return -1;
+    }
+
+    public static int freq(int[] a, int target) {
+        return -1;
+    }
+
+    public static int freqR(int[]a, int target) {
+        return -1;
+    }
     public static void main(String args[]) {
-        System.out.println(random.nextInt());
-        randomIntArray(array);
-        System.out.println(printArray(array));
-        System.out.println(array.length);
+        int[] a = new int[5];
+
+        randomIntArray(a);
+        System.out.println(printArray(a));
+
+        int[] b = {1, 2, 3, 4, 5};
+        System.out.println(linSearch(b, 4));
     }
 }
