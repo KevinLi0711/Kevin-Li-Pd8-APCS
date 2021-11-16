@@ -3,11 +3,11 @@ Team we forgot: Jonathan Song, Justin Mohabir, Kevin Li
 APCS
 HW35 -- A Pirate's Life for Me (refactored)
 2021-11-15
-time spent: 
+time spent: .2 hours
 DISCO
     - 
 QCC:
-    - 
+    - Is there a specific range we should aim for in the random number generator if it's not given in the instructions?
 */
 public class Loopier{
     public static int counter = 0;
