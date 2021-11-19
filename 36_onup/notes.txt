@@ -1,0 +1,35 @@
+Kevin Li
+APCS
+HW36 -- Notes on Debugging
+2021-11-19
+time spent: .8 hours
+
+Compile-time errors (can be avoided with incremental development)
+    - If there are numerous errors, deal with the first error message because it may be a cause of other errors
+    - Error messages say where the compiler found a problem. The location it gives may not be where the error is
+    - Double quotes are for strings, single quotes are for characters
+    - You can place a syntax error at the beginning of a program and see if it is noticed. If it isn't, there may be a problem with hpw the development environment was set up
+    - Debugging by bisection involves first creating a backup, then removing code in halves and compiling to figure out the location of the error
+
+Run-time errors
+    - Hanging is when a program seems to stop and do nothing, usually as a result of an infinite loop/recursion
+    - Add print statements at the start and end of suspect loops to test if they are the problem
+    - Once you identify the problematic loop, you can print out the value of the conditional, and of the variables in the conditional to figure out what went wrong
+        - You can do the same for recursions by printing out the parameters
+    - Print statements are good for figuring out the flow of execution, but if you use them, you should simplify the code and the print output to reduce clutter
+
+Exceptions
+    - NullPointerException: You tried to access an instance variable / invoke a method on an object that is null
+    - ArrayIndexOutOfBounds: The index is negative or larger than the biggest index of the array you are trying to access
+    - FileNotFoundException: Java couldn't find the right file. Double check that the file exists and that the path is correct
+
+Logic errors
+    - Test individual classes and methods if necessary to figure out what the program is actually doing
+    - Don't use == to compare doubles because floating point numbers are not exact. 
+        - if(d == 1.23) can be rewritten as if(Math.abs(d - 1.23) < .000001)
+    - == checks if things are identical
+    - equals checks equivalence
+
+Breaking complex expressions down using variable assingments makes code more readable and easier to debug 
+print may store an output but not display it if there is not newline, in which case, use println instead
+If really stuck, get away from the computer for a bit or try talking with a person/rubber duck
