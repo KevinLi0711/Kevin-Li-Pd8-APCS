@@ -37,8 +37,6 @@ public class Protagonist{
             attack -= atkboost;
             defense += defboost;
         }
-        System.out.println(attack);
-        System.out.println(defense);
 	}
 	public int attack(Monster mon){
 		if (Math.random()<accuracy){
