@@ -105,7 +105,7 @@ public class BinSearch
 
     System.out.println( output );
   }
-
+  
 
 
   //main method for testing
@@ -147,12 +147,15 @@ public class BinSearch
     System.out.println( binSearch(iArr2,43) );
     
     System.out.println( "now testing binSearch on iArr3..." );
+    System.out.println(System.currentTimeMillis());
     System.out.println( binSearch(iArr3,4) );
     System.out.println( binSearch(iArr3,8) );
     System.out.println( binSearch(iArr3,5) );
     
     //search for 43 in array 
+    System.out.println(System.currentTimeMillis());
     System.out.println( binSearch(iArr3,43) );
+    System.out.println(System.currentTimeMillis());
     /*----------------------------------------------------
     ====================================================*/
 
