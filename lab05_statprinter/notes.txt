@@ -7,7 +7,7 @@ time spent:  hrs
 
 DISCO
 ------------------------------------------------
-* 
+* You can't use .set to change a number at an index of ArrayList if there is no value at that index
 ================================================
 
 
