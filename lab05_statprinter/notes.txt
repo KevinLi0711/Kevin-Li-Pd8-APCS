@@ -7,13 +7,13 @@ time spent:  hrs
 
 DISCO
 ------------------------------------------------
-* Using .set or .get when the number at the target indec hasn't been initialized will return an outOfBounds error
+* Using .set or .get when the number at the target index hasn't been initialized will return an outOfBounds error
 ================================================
 
 
 QCC
 ------------------------------------------------
-* 
+* Is there a faster way to find the max value of an unordered arraylist
 ================================================
 
 
