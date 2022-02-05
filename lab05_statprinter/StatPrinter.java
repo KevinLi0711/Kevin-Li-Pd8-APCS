@@ -109,11 +109,14 @@ public class StatPrinter
   //	O(1)
   public boolean isLocalMode( int i ) 
   { 
-    if ((i > 0) && (i < _frequency.size() - 1) && 
-    (_frequency.get(i - 1)) < (_frequency .get( i )) &&
-    (_frequency.get(i + 1)) < (_frequency .get( i ))) {
+    if (
+        ( i > 0 ) && 
+        ( i < _frequency.size() - 2 ) && 
+        ( _frequency.get(i - 1) < _frequency .get( i ) ) &&
+        ( _frequency.get(i + 1) < _frequency .get( i ) )
+        ) {
       return true;
-    }else 
+    } else 
     return false;
   }
 
