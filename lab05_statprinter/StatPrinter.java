@@ -67,15 +67,18 @@ public class StatPrinter
   //	O(n)
   public StatPrinter( ArrayList <Integer> data ) 
   { 
-    _frequency = new ArrayList<Integer>(max(data) + 1);
+    _frequency = new ArrayList<Integer>(max(data));
 
-    for (int x = 0; x < data.size() + 1; x++) {
+    for (int x = 0; x < max(data) + 1; x++) {
         _frequency.add(0);
     }
 
     for (int i : data) {
         _frequency.set(i, _frequency.get(i) + 1); 
     }
+
+    System.out.println("size of _frequency: " + _frequency.size());
+    System.out.println("max of data: " + max(data));
 
   }
 
@@ -111,7 +114,7 @@ public class StatPrinter
   { 
     if (
         ( i > 0 ) && 
-        ( i < _frequency.size() - 2 ) && 
+        ( i < _frequency.size() - 1 ) && 
         ( _frequency.get(i - 1) < _frequency .get( i ) ) &&
         ( _frequency.get(i + 1) < _frequency .get( i ) )
         ) {
@@ -151,5 +154,16 @@ public class StatPrinter
         }
       System.out.print("\n");
     }
+  }
+
+  public String getFrequency() {
+      String output = "[";
+      for (Integer i : _frequency) {
+          output = output + i + ", ";
+      }
+      output = output.substring(0, output.length() - 2);
+      output = output + "]";
+
+      return output;
   }
 }//end class StatPrinter
