@@ -147,9 +147,11 @@ public class StatPrinter
   public void printHistogram( int longestBar ) 
   {
     int stars = longestBar / max(_frequency);
+    int remainder = longestBar - (stars * max(_frequency));
+
     for (int i = 0; i < _frequency.size(); i++) {
       System.out.print(i + " : " );
-        for (int j = 0; j < stars * _frequency.get(i) + 1; j ++) {
+        for (int j = 0; j < stars * _frequency.get(i) + remainder; j ++) {
           System.out.print("*");
         }
       System.out.print("\n");
