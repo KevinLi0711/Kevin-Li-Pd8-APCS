@@ -143,7 +143,7 @@ public class StatPrinter
 
   //*************** QUESTION 05 **************************
   //precond:  longestBar > 0
-  //	O(n^2) possibly amortized?
+  //	O(n)
   public void printHistogram( int longestBar ) 
   {
     int stars = longestBar / max(_frequency);
