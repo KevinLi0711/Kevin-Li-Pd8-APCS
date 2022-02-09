@@ -59,16 +59,21 @@ public class MergeSort
   public static int[] sort( int[] arr )
   {
       int[][] list = new int[arr.length][1];
+      int[][] merging = new int[arr.length][];
       int[] output = new int[0];
 
       for (int i = 0; i < arr.length; i++) {
           list[i][0] = arr[i];
+          merging[i] = list[i];
       }
 
-      for (int i = 0; i < arr.length; i++) {
-          output = merge(output, list[i]);
-      }
+      while (merging[0].length < arr.length) {
+          for (int i = 0; i < arr.length - 1; i += (2 * merging[0].length) ) {
+              merging[i] = merge(merging[i], merging[i + merging[0].length]);
+          }
+        }
 
+        output = merging[0];
       return output;
   }//end sort()
 
