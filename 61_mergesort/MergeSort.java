@@ -5,49 +5,11 @@
   Summary of Algorithm:
   
   For sort()
-  1. Create a 2d array, and place each value of the input array into the 2d array
-        {5, 1, 8, 4} becomes
-    0: [5] 
-    1: [1]
-    2: [8]
-    3: [4]
-        Now you have multiple sorted arrays to merge
-
-  2. Store the length of the last array as a variable
-    0: [5] 
-    1: [1]
-    2: [8]
-    3: [4] -> listLength = 1
-
-  3. Starting with (index = arr.size - 1), merge the array at index with the array at index - listLength
-    0: [5] 
-    1: [1]
-    2: [8]    (index - listLength)
-    3: [4, 8] (index)
-
-  4. Decrement index by 2 * listLength and repeat step 3. Do this until decrementing would make index < 0
-    0: [5]    (index - listLength)
-    1: [1, 5] (index)
-    2: [8]    
-    3: [4, 8] 
-
-  5. Set index back to arr.size - 1
-    0: [5]    
-    1: [1, 5] 
-    2: [8]    
-    3: [4, 8] (index)
-
-  6. Set listLength equal to the length of the last array again
-    0: [5]    
-    1: [1, 5] 
-    2: [8]    
-    3: [4, 8] (listLength = 2)
-
-  7. Repeat above steps until sorted, then return the last array
-    0: [5]    
-    1: [1, 5]       (index - listLength)
-    2: [8]    
-    3: [1, 4, 5, 8] (index)
+  1. If the input is length 1, then return arr
+  2. Split arr into 2 halves, the left and the right
+  3. run sort on left until it is broken down into multiple length 1 arrays
+  4. Run sort on right until it's also broken down
+  5. Merge left and right
 
   ***/
 
@@ -101,26 +63,30 @@ public class MergeSort
    * Sorts input array using mergesort algorithm
    * Returns sorted version of input array (ascending)
    ******************************************************/
-  public static int[] sort( int[] arr )
-  {
-      int middle = arr.length / 2;
-      int[] left = new int[middle];
-      int[] right = new int[arr.length - middle];
-      int[] output = new int[arr.length];
+  public static int[] sort(int[] arr) {
+    if (arr.length < 2) {
+      return arr;
+    }
 
-      for(int i = 0; i < middle; i++) {
-          left[i] = arr[i];
-      }
+    int mid = arr.length / 2;
+    int[] left = new int[mid];
+    int[] right = new int[arr.length - mid];
+    int index = 0;
+    
+    for (int i = 0; i < left.length; i++) {
+      left[i] = arr[i];
+    }
 
-      for(int i = middle; i < arr.length; i++) {
-        right[i - middle] = arr[i];
-      }
+    for (int i = mid; i < arr.length; i++) {
+      right[index] = arr[i];
+      index++;
+    }
 
-      left = sort(left);
-      right = sort(right);
+    left = sort(left);
+    right = sort(right);
 
-      output = merge(left, right);
-  }//end sort()
+    return merge(left, right);
+  }// end sort()
 
 
 
