@@ -103,28 +103,23 @@ public class MergeSort
    ******************************************************/
   public static int[] sort( int[] arr )
   {
-      int[][] list = new int[arr.length][1];
-      int listLength = 1;
+      int middle = arr.length / 2;
+      int[] left = new int[middle];
+      int[] right = new int[arr.length - middle];
+      int[] output = new int[arr.length];
 
-      for (int i = 0; i < arr.length; i++) {
-          list[i][0] = arr[i];
+      for(int i = 0; i < middle; i++) {
+          left[i] = arr[i];
       }
 
-    while (listLength < arr.length) {
-        for (int i = arr.length; i > listLength;  i -= 2 * listLength) {
-            list[i - 1] = merge(list[i - 1], list[i - 1 - listLength]);
-        }
-        listLength = list[arr.length - 1].length;
+      for(int i = middle; i < arr.length; i++) {
+        right[i - middle] = arr[i];
+      }
 
-        // Print statement to visualize how this algorithm works
-        System.out.println("list");
-        for (int[] x : list) {
-            printArray(x);
-        }
-        System.out.println("\n");
-    }
+      left = sort(left);
+      right = sort(right);
 
-      return list[arr.length - 1];
+      output = merge(left, right);
   }//end sort()
 
 
