@@ -1,22 +1,19 @@
-Suspicious Oranges: Keven Li, Weichen Liu, Samim 
-APCS pd07
-HW60 -- A Termite is-a Turtle, a Thinker is-a Turtle
+Kevin Li, David Chen
+APCS pd08
+HW61 -- Instructions so Simple...
 2022-02-07
 time spent: 0.5 hrs
 
 DISCO:
 - An array has to be sorted if there is only one element in the array!
-
+- Outsourcing work is good. Give work to other people to do it, who then also give the work to others. Should eventually come back to you.
 
 QCC:
-- Is there a sort method faster than merge sort?
-- If it's true that the last person to receive the cards does some kind of sorting, then what is it that they do? 
+- Is sort a job for recursion? It appeared that way when we first looked at it, but we struggle to implement recursion into the algo
 
 THINKER FIRMWARE:
-- Only thinkeren with cards are allowed to speak. 
-- They may only speak to <3 other thinkeren.
 - When a thinker has >1 card, split the deck in half and give one each to two other thinkeren. Signal that your hands are empty.
 - If a thinker's hands are empty and has not gotten a deck yet, receive a split deck from another thinker.
 - If a thinker has 1 card, it is declared sorted. Return the card to the thinker who originally gave it to you.
-- When you receive 2 decks of cards, look at the first card of each deck and sort them accordingly into one new deck. 
-- Repeat steps until the deck is sorted.
+- When you receive 2 decks of cards, place them both face up. Compare the face up cards and place the lowest card in a new pile
+- When you have merged the 2 decks into 1, return it to the thinker who originally gave it to you 
