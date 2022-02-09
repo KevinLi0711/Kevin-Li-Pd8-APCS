@@ -7,6 +7,7 @@ time spent: 0.5 hrs
 DISCO:
 - An array has to be sorted if there is only one element in the array!
 
+
 QCC:
 - Is there a sort method faster than merge sort?
 - If it's true that the last person to receive the cards does some kind of sorting, then what is it that they do? 
