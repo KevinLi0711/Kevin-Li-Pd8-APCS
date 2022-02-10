@@ -101,11 +101,14 @@ public class Review {
   public static double totalSentiment( String fileName ) {
   	String file = textToString(fileName);
   	int startIndex = 0;
-  	int endIndex;
+  	int endIndex = 0;
   	
-  	for (int i = 0; i < file.length; i++)
+  	while (endIndex < file.length()) {
+  		endIndex = file.indexOf(" ");
+  		sentimentVal(file.substring(startIndex, endIndex));
+  	}
   	
-  	while (
+  	return 0.0;
   }
   
   /**
