@@ -201,6 +201,15 @@ public class Review {
     }
   }
   
+  public static String fakeReview(String input) {
+  	String file = textToString(input);
+  	file = file.substring(startIndex);
+  	int startIndex = input.indexOf("*");
+  	int endIndex = file.indexOf(" ");
+  	
+  	file = file.su
+  }
+  
   public static void main(String[] args) {
   	System.out.println(sentimentVal("academy"));
   	System.out.println(sentimentVal("painful"));
