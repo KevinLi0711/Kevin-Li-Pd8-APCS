@@ -122,6 +122,21 @@ public class Review {
   	
   	return total;
   }
+
+  public static int starRating(String filename) {
+      double sentiment = totalSentiment(filename);
+      sentiment = sentiment / 3;
+
+      if ((int)sentiment < 0) {
+          return 1;
+      }
+
+      if ((int)sentiment > 5) {
+        return 5;
+      }
+
+      return (int)sentiment;
+  }
   
   /**
    * Returns the ending punctuation of a string, or the empty string if there is none 
@@ -192,6 +207,8 @@ public class Review {
   	System.out.println(sentimentVal("academy"));
   	System.out.println(sentimentVal("painful"));
   	System.out.println(sentimentVal("smart"));
-    System.out.println(totalSentiment("bookReview.txt"));
+    System.out.println(totalSentiment("SimpleReview.txt"));
+    System.out.println(starRating("SimpleReview.txt"));
+    
   }
 }
