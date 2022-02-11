@@ -1,0 +1,9 @@
+Activity 2
+
+5a) Not exactly because reviews with few words will get a lower star rating, even if the review is positive
+
+5b) We could average the rating of every word, or make the star rating dependent on a ratio of positive to negative words
+
+6) He probably intends for the code to run like "if totalSentiment is greater than 5 but less than 10, then return 3". But the current code can't test for those intervals because if totalSentiment is less than 15, it just returns 4 and does no other checks. This can be fixed by either flipping the signs in the boolean expressions, or reversing the order of the checks
+
+
