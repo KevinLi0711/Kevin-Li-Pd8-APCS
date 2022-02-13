@@ -37,7 +37,7 @@ public class Review {
       Scanner input = new Scanner(new File("positiveAdjectives.txt"));
       while(input.hasNextLine()){
         String temp = input.nextLine().trim();
-        System.out.println(temp);
+        //System.out.println(temp);
         posAdjectives.add(temp);
       }
       input.close();
@@ -204,8 +204,7 @@ public class Review {
   public static String fakeReview(String input) {
   	String file = textToString(input);
     String output = "";
-
-    double sentiment = totalSentiment(file);
+    double sentiment = totalSentiment(input);
     
     //find asterick
   	int startIndex = file.indexOf("*");
@@ -221,6 +220,7 @@ public class Review {
         if (sentiment < 0) {
             output = output + randomNegativeAdj();
         } else 
+
         output = output + randomAdjective();
         
 
