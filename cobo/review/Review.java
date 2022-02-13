@@ -204,6 +204,8 @@ public class Review {
   public static String fakeReview(String input) {
   	String file = textToString(input);
     String output = "";
+
+    double sentiment = totalSentiment(file);
     
     //find asterick
   	int startIndex = file.indexOf("*");
@@ -211,9 +213,16 @@ public class Review {
     while (startIndex != -1) {
         //add all text up to asterick
         output = output + file.substring(0, startIndex);
-        
+
         //add a random adjective
+        if (sentiment > 0) {
+            output = output + randomPositiveAdj();
+        } else 
+        if (sentiment < 0) {
+            output = output + randomNegativeAdj();
+        } else 
         output = output + randomAdjective();
+        
 
         //cut the string up to and including the asterick
   	    file = file.substring(startIndex + 1);
