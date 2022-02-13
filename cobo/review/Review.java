@@ -203,11 +203,36 @@ public class Review {
   
   public static String fakeReview(String input) {
   	String file = textToString(input);
-  	file = file.substring(startIndex);
-  	int startIndex = input.indexOf("*");
-  	int endIndex = file.indexOf(" ");
-  	
-  	file = file.su
+    String output = "";
+    
+    //find asterick
+  	int startIndex = file.indexOf("*");
+
+    while (startIndex != -1) {
+        //add all text up to asterick
+        output = output + file.substring(0, startIndex);
+        
+        //add a random adjective
+        output = output + randomAdjective();
+
+        //cut the string up to and including the asterick
+  	    file = file.substring(startIndex + 1);
+        startIndex = file.indexOf(" ");
+
+        //adds existing punctuation
+        if (startIndex != -1) {
+            if (!Character.isAlphabetic(file.charAt(startIndex - 1))) {
+                output = output + file.charAt(startIndex - 1);
+            }
+            output = output + " ";
+        }
+
+        //cut the word after the asterick
+        file = file.substring(startIndex + 1);
+        startIndex = file.indexOf("*");
+    }
+
+    return output;
   }
   
   public static void main(String[] args) {
@@ -216,6 +241,6 @@ public class Review {
   	System.out.println(sentimentVal("smart"));
     System.out.println(totalSentiment("SimpleReview.txt"));
     System.out.println(starRating("SimpleReview.txt"));
-    
+    System.out.println(fakeReview("SimpleReview.txt"));
   }
 }
