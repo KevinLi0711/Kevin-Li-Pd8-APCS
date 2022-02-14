@@ -45,9 +45,7 @@ Activity 4
 1) To sabotage your competition
 2) To make yourself seem better
 
-3) First take the sentiment value of the entire review
-   If the sentiment is negative, then add negative adjectives
-   If the sentiment is positive, then add positive adjectives
+3) For each word marked with an asterick, if sentimentVal is less than or equal to 0, then replace it with a positive adjective, otherwise leave it alone
 
 5) The result is oneWord with the first character removed
 6) The asterick has to be removed because otherwise the word will not be recognized and sentimentVal will be 0

@@ -204,7 +204,7 @@ public class Review {
   public static String fakeReview(String input) {
   	String file = textToString(input);
     String output = "";
-    double sentiment = totalSentiment(input);
+    String word;
     
     //find asterick
   	int startIndex = file.indexOf("*");
@@ -213,20 +213,22 @@ public class Review {
         //add all text up to asterick
         output = output + file.substring(0, startIndex);
 
-        //add a random adjective
-        if (sentiment > 0) {
-            output = output + randomPositiveAdj();
-        } else 
-        if (sentiment < 0) {
-            output = output + randomNegativeAdj();
-        } else 
-
-        output = output + randomAdjective();
-        
-
         //cut the string up to and including the asterick
   	    file = file.substring(startIndex + 1);
         startIndex = file.indexOf(" ");
+
+        //add a random adjective
+        if (startIndex != -1) {
+            word = file.substring(0, startIndex);
+        } else {
+            word = file;
+        }
+
+        if (sentimentVal(word) <= 0) {
+            output = output + randomPositiveAdj();
+        } else {
+            output = output + removePunctuation(word);
+        }
 
         //adds existing punctuation
         if (startIndex != -1) {
@@ -234,6 +236,8 @@ public class Review {
                 output = output + file.charAt(startIndex - 1);
             }
             output = output + " ";
+        } else {
+            output = output + getPunctuation(file);
         }
 
         //cut the word after the asterick
