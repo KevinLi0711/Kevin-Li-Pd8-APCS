@@ -1,0 +1,61 @@
+public int factorial(int n) {
+  if(n == 1) {
+    return n;
+  }
+  
+  return (n * factorial(n-1));
+}
+
+public int bunnyEars(int bunnies) {
+  if (bunnies==0) {
+    return 0;
+  }
+  
+  return 2 + bunnyEars(bunnies - 1);
+}
+
+public int fibonacci(int n) {
+  if (n==0) {
+    return 0;
+  }
+  if (n==1) {
+    return 1;
+  }
+  
+  return fibonacci(n-1) + fibonacci(n-2);
+}
+
+public int bunnyEars2(int bunnies) {
+  int ears = 0;
+  
+  if (bunnies == 0) {
+    return ears = 0;
+  }
+  
+  if (bunnies % 2 == 0) {
+    ears = 3;
+  } else {
+    ears = 2;
+  }
+  
+  return ears + bunnyEars2(bunnies - 1);
+}
+
+public int triangle(int rows) {
+  if (rows == 0) {
+    return 0;
+  }
+  
+  return rows + (triangle(rows - 1));
+}
+
+public int sumDigits(int n) {
+  if (n == 0) {
+    return 0;
+  }
+  
+  int rightmost = n % 10;
+  int rightmostRemoved = n / 10;
+  
+  return rightmost + sumDigits(rightmostRemoved);
+}
