@@ -5,6 +5,14 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.io.*;
 
+/*
+Team Suspicious Oranges: Kevin Li, Hamim Seam, Weichen Liu
+APCS
+Lab 6 -- College Board Consumer Review Lab
+2022-02-13
+time spent: 2 hours
+*/
+
 /**
  * Class that contains helper methods for the Review Lab
  **/
@@ -37,7 +45,7 @@ public class Review {
       Scanner input = new Scanner(new File("positiveAdjectives.txt"));
       while(input.hasNextLine()){
         String temp = input.nextLine().trim();
-        System.out.println(temp);
+        //System.out.println(temp);
         posAdjectives.add(temp);
       }
       input.close();
@@ -203,11 +211,49 @@ public class Review {
   
   public static String fakeReview(String input) {
   	String file = textToString(input);
-  	file = file.substring(startIndex);
-  	int startIndex = input.indexOf("*");
-  	int endIndex = file.indexOf(" ");
-  	
-  	file = file.su
+    String output = "";
+    String word;
+    
+    //find asterick
+  	int startIndex = file.indexOf("*");
+
+    while (startIndex != -1) {
+        //add all text up to asterick
+        output = output + file.substring(0, startIndex);
+
+        //cut the string up to and including the asterick
+  	    file = file.substring(startIndex + 1);
+        startIndex = file.indexOf(" ");
+
+        //add a random adjective
+        if (startIndex != -1) {
+            word = file.substring(0, startIndex);
+        } else {
+            word = file;
+        }
+
+        if (sentimentVal(word) <= 0) {
+            output = output + randomPositiveAdj();
+        } else {
+            output = output + removePunctuation(word);
+        }
+
+        //adds existing punctuation
+        if (startIndex != -1) {
+            if (!Character.isAlphabetic(file.charAt(startIndex - 1))) {
+                output = output + file.charAt(startIndex - 1);
+            }
+            output = output + " ";
+        } else {
+            output = output + getPunctuation(file);
+        }
+
+        //cut the word after the asterick
+        file = file.substring(startIndex + 1);
+        startIndex = file.indexOf("*");
+    }
+
+    return output;
   }
   
   public static void main(String[] args) {
@@ -216,6 +262,6 @@ public class Review {
   	System.out.println(sentimentVal("smart"));
     System.out.println(totalSentiment("SimpleReview.txt"));
     System.out.println(starRating("SimpleReview.txt"));
-    
+    System.out.println(fakeReview("SimpleReview.txt"));
   }
 }

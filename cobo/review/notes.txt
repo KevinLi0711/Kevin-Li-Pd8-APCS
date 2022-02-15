@@ -1,9 +1,124 @@
+Team Suspicious Oranges: Kevin Li, Hamim Seam, Weichen Liu
+APCS
+Lab 6 -- College Board Consumer Review Lab
+2022-02-13
+time spent: 2 hours
+
+Activity 1
+
+1a) sentimentVal(String word)
+1b) The parameter asks for a string, and passing it any other variable type will make the code uncompilable
+1c) The method returns a double
+
+2)  "academy"   0.61
+    "painful"   -3.69
+    "smart"     1.04
+
+3a) Would compile because the variable type and parameter match sentimentVal
+3b) Would not compile because sentimentVal does not take a double as a parameter, and the return type is not a string
+3c) Would not compile because sentimentVal does not take 2 parameters
+
 Activity 2
 
-5a) Not exactly because reviews with few words will get a lower star rating, even if the review is positive
+2) -5.539999999999999
 
+4) totalSentiment finds the index of the first space in the input file, and then creates a substring from 0 to that index. 
+   punctuation is removed from that substring, and then sentimentVal is run on it, and the value returned is added to a variable named total
+   the file is then set to a substring of itself with the first word removed, and the above steps repeat
+   the loop breaks when the index of the first space is -1, then sentimentVal is run on the whole file rather than a substring of the file (punctuation is still removed beforehand)
+
+5a) Not exactly because reviews with few words will get a lower star rating, even if the review is positive
 5b) We could average the rating of every word, or make the star rating dependent on a ratio of positive to negative words
 
-6) He probably intends for the code to run like "if totalSentiment is greater than 5 but less than 10, then return 3". But the current code can't test for those intervals because if totalSentiment is less than 15, it just returns 4 and does no other checks. This can be fixed by either flipping the signs in the boolean expressions, or reversing the order of the checks
+6) He probably intends for the code to run like "if totalSentiment is greater than 5 but less than 10, then return 3". 
+   But the current code can't test for those intervals because if totalSentiment is less than 15, it just returns 4 and does no other checks. 
+   This can be fixed by either flipping the signs in the boolean expressions, or reversing the order of the boolean expressions
 
 
+Activity 3
+
+3) You can split a string into two parts by using indexOf() to find a specific character where you want to make the split. Then use substring 
+   to create a string of everything up to that index. then use substring again to create a string of everything after that index. You need to add 
+   1 to the index to copy the remaining half because otherwise indexOf() will keep returning the same number
+
+5) Non-static methods belong to the instance of their class, so you need to create an object to use them. Static methods can be used without
+   creating an object, which is why we did not need to create a Review object to run the methods Inconsiderate
+
+6) If we want positive reviews, have fakeReview() replace adjectives with only positive adjectives. If we want negative reviews, use only negative adjectives
+
+Activity 4
+
+1) To sabotage your competition
+2) To make yourself seem better
+
+3) For each word marked with an asterick, if sentimentVal is less than or equal to 0, then replace it with a positive adjective, otherwise leave it alone
+
+5) The result is oneWord with the first character removed
+6) The asterick has to be removed because otherwise the word will not be recognized and sentimentVal will be 0
+7) Replace words with a adjectives that have a high sentiment value. Ex: only use words with sentiment greater than 1
+
+Activity 5
+
+1) We hate vowels
+2) If this question is referring to how we worked as a team, then we worked on parts of the code individually, and then double checked each others' work 
+   to make everything work together.
+
+   We took getPunctuation() and removePunctuation() from the other parts of this lab, and we took hasA() from the pig latin lab
+   We also created a final string of vowels as was done in the pig latin lab
+   We made a helper method first that removes the vowels in a word, then made a method to use that helper method on every word in a string
+
+3) public static String removeVowels(String phrase)
+   The parameter is a String because you can't remove vowels from something that can't have letters
+   The method is static because we didn't see any point in making an object in order to use the methods
+
+4) for(int i = 0; i < word.length(); i++) {
+        letter = word.substring(i, i + 1);
+        if(!hasA(vowels, letter.toUpperCase())) {
+          output += word.charAt(i);
+        }
+      }
+
+   The code uses .toUpperCase() to check if the letter at index i is a vowel. The letter is made uppercase because all the vowels in
+   out final String vowel are uppercase, and they need to both be uppercase to be compared
+
+   If the character is not a vowel, then charAt() is used to add the character at that index to the final output
+
+5) while(phrase.length() > 0 && phrase.indexOf(" ") != -1) {
+        nextWord = phrase.substring(0, phrase.indexOf(" "));
+        noVowels += removeVowelsHelper(nextWord);
+        noVowels += " ";
+        phrase = phrase.substring(phrase.indexOf(" ") + 1);
+      }
+
+   The above code could be rewritten using nested boolean statements:
+
+   while(phrase.length() > 0) {
+        if (phrase.indexOf(" ") != -1) {
+            nextWord = phrase.substring(0, phrase.indexOf(" "));
+            noVowels += removeVowelsHelper(nextWord);
+            noVowels += " ";
+            phrase = phrase.substring(phrase.indexOf(" ") + 1);
+        } else break;
+      }
+
+6)  for(int i = 0; i < word.length(); i++) {
+        letter = word.substring(i, i + 1);
+        if(!hasA(vowels, letter.toUpperCase())) {
+          output += word.charAt(i);
+        }
+      }
+
+    The loop iterates starting from 0 and stopping when i is equal to the length of the input. With each iteration, it checks if the character
+    at index i is not a vowel. If it's not a vowel, then the letter is added to the output. Otherwise, it is skipped
+
+    equivalent code: 
+
+    int i = 0;
+    while (i < word.length()) {
+        letter = word.substring(i, i + 1);
+        if(!hasA(vowels, letter.toUpperCase())) {
+          output += word.charAt(i);
+        }
+        i++;
+    }
+   
