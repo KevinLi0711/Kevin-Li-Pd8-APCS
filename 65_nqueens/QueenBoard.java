@@ -19,7 +19,7 @@ public class QueenBoard
 
   /***
    * precondition: board is filled with 0's only.
-   * postcondition: 
+   * postcondition:
    * If a solution is found, board shows position of N queens, 
    * returns true.
    * If no solution, board is filled with 0's, 
@@ -28,6 +28,12 @@ public class QueenBoard
   public boolean solve()
   {
     return solveH(0);
+  }
+
+  public boolean solve(int startingRow)
+  {
+    addQueen(startingRow, 0);
+    return solveH(1);
   }
 
 
@@ -83,9 +89,15 @@ public class QueenBoard
   //================= YE OLDE SEPARATOR =================
 
   /***
-   * <General description>
+   * Attempts to place a queen at the given row and column
    * precondition: 
+   *    row and column are both less than size
    * postcondition: 
+   *    if placement successful, _board[row][col] = 1
+   * all tiles to the right, diagonally up right, and diagonally down right of the given coordinates decrement by 1
+   * returns true
+   * if placement unsuccessful
+   *    returns false
    */
   private boolean addQueen(int row, int col)
   {
@@ -109,9 +121,15 @@ public class QueenBoard
 
 
   /***
-   * <General description>
+   * Attempts to place a remove at the given row and column
    * precondition: 
+   *    row and column are both less than size
    * postcondition: 
+   * if removal successful, _board[row][col] = 0
+   *    all tiles to the right, diagonally up right, and diagonally down right of the given coordinates increment by 1
+   *    returns true
+   * if placement unsuccessful
+   *    returns false
    */
   private boolean removeQueen(int row, int col){
     if ( _board[row][col] != 1 ) {
@@ -135,9 +153,11 @@ public class QueenBoard
 
 
   /***
-   * <General description>
+   * returns a string of a board containing the elements of _board in their proper row and column
    * precondition: 
+   *    an instance of QueenBoard exists and invokes this method
    * postcondition: 
+   *    returns a string of every element in _board in a square
    */
   public String  toString()
   {
@@ -187,7 +207,8 @@ public class QueenBoard
     */
     
     QueenBoard solve = new QueenBoard(8);
-    System.out.println(solve.solve());
+    System.out.println(solve.solve(6));
+    System.out.println(solve);
     solve.printSolution();
   }
 

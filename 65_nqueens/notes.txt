@@ -1,0 +1,11 @@
+Suspicious Oranges :: Kevin Li, Weichen Liu, Hamim 
+APCS
+HW65 -- Placing Queen on board
+2022-02-16
+time spent: 0.8 hrs
+
+QCC
+What is the cleanest way to exhaustively test where the queens can be placed in solve() using the solveH()? 
+
+DISCO: 
+Setting the base case to be when we have placed a queen in every col is smart. 
