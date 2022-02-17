@@ -27,7 +27,6 @@ public class QueenBoard
    */
   public boolean solve()
   {
-  
     return solveH(0);
   }
 
@@ -39,16 +38,18 @@ public class QueenBoard
   {
     if (col == _board.length) {
     	return true;
-    }	else {
+    }
     	
     for (int row = 0; row < _board.length; row++) {
     	if (addQueen(row, col)) {
-    	   solveH(col + 1);
-    	} else {
-    	   removeQueen(row, col);
-    	}
+            if (solveH(col + 1)) {
+                return true;
+            }
+    	} 
+        removeQueen(row, col);
     }
-    }
+
+    return false;
 
   }
 
@@ -60,6 +61,21 @@ public class QueenBoard
         all negs and 0's replaced with underscore
         all 1's replaced with 'Q'
     */
+
+    String ans = "";
+    for( int r = 0; r < _board.length; r++ ) {
+      for( int c = 0; c < _board[0].length; c++ ) {
+        if (_board[r][c] <= 0) {
+            ans += "_" + "\t";
+        } else 
+        if (_board[r][c] == 1) {
+            ans += "Q" + "\t";
+        } else 
+        ans += _board[r][c]+"\t";
+      }
+      ans += "\n";
+    }
+    System.out.println(ans);
   }
 
 
@@ -170,6 +186,9 @@ public class QueenBoard
        0	0	0	0	0	 
     */
     
+    QueenBoard solve = new QueenBoard(8);
+    System.out.println(solve.solve());
+    solve.printSolution();
   }
 
 }//end class
