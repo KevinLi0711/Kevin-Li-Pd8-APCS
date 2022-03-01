@@ -1,0 +1,32 @@
+Team Suspicious Oranges: Weichen Liu, Kevin Li, Hamim Seam
+APCS
+HW67
+2022-02-28
+Time Spent: .5 hours
+
+Algorithm
+	- An instance variable: x = 0
+	- If we moved the knight 63 times (x == 64), return true, else call the recursion.
+	The recursion: 
+		- Attempt to place a knight (tile must have a value of 0). 
+		If the placement is successful, 
+			- Set the value of the knight’s tile to x
+			- Increment x
+			- Attempt to place another knight on a tile that is 1 knight’s move away
+		If the placement is unsuccessful, 
+			- Try a different knight move
+			- If all possible knight moves have been tried, and none are successful, remove the current knight and backtrack
+			- Decrement x
+
+Assumptions/Givens
+	- We start in the top left corner.
+	- The board is an array of arrays that is filled with zeroes initially. 
+	- We will have two static array variables that contain the possible moves for the knight. 
+
+Goal
+	- To utilize recursion to backtrack when a knight can’t be placed
+
+Finished Product
+	- If there is a solution, then the board will have integer values ranging from 0 to 63, each appearing once
+		- The integer values represent the order of moves made by the knight
+	- If there is no solution, then the board will be all 0s
