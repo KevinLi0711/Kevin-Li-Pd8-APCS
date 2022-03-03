@@ -1,0 +1,82 @@
+Luminosity: Salaj Rijal, Kevin Li
+APCS
+HW 69 -- Making Sense -- Discuss Knights Tour and Brainstorm Maze Algo
+2022-03-02
+time spent: .6 hours
+
+Mean execution times for boards of size n*n:
+
+(note these results are without print statements)
+
+Suspicous Oranges:
+ * n=5   .150s    across 1 executions
+ * n=6   .203s    across 1 executions
+ * n=7   .227s    across 1 executions
+ * n=8   .272s    across 1 executions
+
+Flying Sullen Actors:
+ * n=5   .134s    across 1 execution
+ * n=6   .122s    across 1 execution
+ * n=7   .261s    across 1 execution
+ * n=8   .291s    across 1 execution
+
+q0: From any starting position, can an open tour always be found? Explain.
+ 
+ No. We know this because when we ran KnightTour for a 5x5 board starting at square 2, 3 (including the moat) and a solution was not found, even if a 
+ solution was found for (2, 2).
+
+q1: Same, but for closed tour.
+ 
+ No, because if a tour can't be found, then a closed tour can't exist
+
+q2: How do you explain the increase in execution time as n increases?
+
+ As n increases, the amount of routes a knight can take also increases. Since our program has to search every possible route (until it finds a solution of course)
+ the execution time is greater.
+
+q3: Thoughts on optimization?
+
+ Commenting out the print statement exponentially decreased the run time. Also maybe as you the program runs, it can note
+ down each route that it explores so that if in the future it comes across a similar route, it can use the data it noted down to help
+ solve that route.
+
+ALGO
+1. Attempt to move forward in one direction. If we can move forward, keep going until we reach a crossroad
+2. When we reach a crossroad, attempt to make a turn and explore the path ahead. If the path leads to a dead end, go back and try a different turn
+3. If all turns have been tried, go backwards to the previous turn or crossroad
+
+Possible alternative?
+1. Keep moving in one direction until we can no longer move forward
+2. Turn in the direction of the leftmost path 
+3. But missing a base case
+
+MAZES:
+$ - Player
+# - Wall
+E - exit
+
+Easy:
+#$#
+# #
+# ####
+#    E
+######
+
+Medium:
+#$######## 
+#   #    #
+# # #### #
+# #    # #
+# ###### ### 
+#          E
+############
+
+Hard:
+########################
+#  ##      #        #  #
+#      #   # ## ### #  #
+#          #     #     #
+#### ## ## #     #   # #
+#          #    #     ##
+#      #      ### ##  #
+#####E###########$#####
