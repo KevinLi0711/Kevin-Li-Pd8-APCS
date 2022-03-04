@@ -15,8 +15,10 @@
  * (mazefile is ASCII representation of a maze, using symbols below)
  *
  * ALGORITHM for finding exit from starting position:
- *  <INSERT YOUR SUMMARY OF ALGO HERE>
- *
+ * 1. Attempt moves in this order: up, left, right, down
+ * 2. If a move is successful, set the tile to @ and make another move
+ * 3. If a move can't be made (meaning you can't move onto a # or $), then replace the current tile with a . and return to the previous tile
+ * 
  * DISCO
  * 
  * QCC
@@ -33,7 +35,7 @@ class MazeSolver
   final private int FRAME_DELAY = 50;
 
   private char[][] _maze;
-  private int h, w; // height, width of maze
+  public int h, w; // height, width of maze
   private boolean _solved;
 
   //~~~~~~~~~~~~~  L E G E N D  ~~~~~~~~~~~~~
@@ -128,19 +130,33 @@ class MazeSolver
   public void solve( int x, int y )
   {
     delay( FRAME_DELAY ); //slow it down enough to be followable
-
-    //primary base case
-    if ( _solved ) {
-      System.exit(0);
-    }
-    //other base cases
-    else if ( _maze[x][y] == EXIT ) {
+    
+    //check if _solved becomes true
+    if( _maze[x][y] == EXIT ) {
+      //do we need to add code to move player here
+      delay(1000);
+      System.out.println("SOLVED!");
       _solved = true;
       return;
     }
+     
+    //deactivate if solved
+    if ( _solved ) {
+      delay(1000);
+      System.out.println("MAZE SOLVED!");
+      System.exit(0);
+    }
+
+    //check if on path
+    if( ! onPath(x, y) ){
+        return;
+    }
+    
     //otherwise, recursively solve maze from next pos over,
     //after marking current location
     else {
+      //set current tile to hero tile
+      _maze[x][y] = HERO;
       
       System.out.println( this ); //refresh screen
 
@@ -150,12 +166,15 @@ class MazeSolver
       solve(x + 1, y); //down
 
       System.out.println( this ); //refresh screen
+      //set period
+      _maze[x][y] = VISITED_PATH;
     }
+    
   }
 
   //accessor method to help with randomized drop-in location
   public boolean onPath( int x, int y) {
-      return false;
+    return _maze[x][y] == PATH; 
   }
 
 }//end class MazeSolver
@@ -184,15 +203,20 @@ public class Maze
     //display maze
     System.out.println( ms );
 
-    //drop hero into the maze (coords must be on path)
     // ThinkerTODO: comment next line out when ready to randomize startpos
-    ms.solve( 4, 3 );
+    //ms.solve( 0, 0 );
 
     //drop our hero into maze at random location on path
-    // YOUR RANDOM-POSITION-GENERATOR CODE HERE
-    //ms.solve( startX, startY );
-    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    int startX = (int) ( Math.random() * ms.w );
+    int startY = (int) ( Math.random() * ms.h );
+
+    //continously loop until valid position found
+    while( ! ms.onPath(startX, startY) ){
+      startX = (int) ( Math.random() * ms.w );
+      startY = (int) ( Math.random() * ms.h );
+    }
+
+    ms.solve( startX, startY );
   }//end main()
 
 }//end class Maze
