@@ -15,9 +15,7 @@
  * (mazefile is ASCII representation of a maze, using symbols below)
  *
  * ALGORITHM for finding exit from starting position:
- * 1. Attempt moves in this order: up, left, right, down
- * 2. If a move is successful, set the tile to @ and make another move
- * 3. If a move can't be made (meaning you can't move onto a # or $), then replace the current tile with a . and return to the previous tile
+ *  
  * 
  * DISCO
  * 
@@ -131,14 +129,18 @@ class MazeSolver
   {
     delay( FRAME_DELAY ); //slow it down enough to be followable
     
-    //check if _solved becomes true
-    if( _maze[x][y] == EXIT ) {
-      //do we need to add code to move player here
-      delay(1000);
-      System.out.println("SOLVED!");
-      _solved = true;
-      return;
+    //check if on path
+    if( x < 0 || x >= w || y < 0 || y >= h || _maze[x][y] == VISITED_PATH ||  ){
+      //check if _solved becomes true
+      if( _maze[x][y] == EXIT ) {
+        //do we need to add code to move player here
+        delay(1000);
+        System.out.println("SOLVED!");
+        _solved = true;
+      } 
+      else return;
     }
+  
      
     //deactivate if solved
     if ( _solved ) {
@@ -147,9 +149,9 @@ class MazeSolver
       System.exit(0);
     }
 
-    //check if on path
-    if( ! onPath(x, y) ){
-        return;
+    //checks if invalid object
+    if ( _maze[x][y] ==  WALL || _maze[x][y] == VISITED_PATH || _maze[x][y] == HERO) {
+      return;
     }
     
     //otherwise, recursively solve maze from next pos over,
@@ -174,7 +176,7 @@ class MazeSolver
 
   //accessor method to help with randomized drop-in location
   public boolean onPath( int x, int y) {
-    return _maze[x][y] == PATH; 
+    return (_maze[x][y] == PATH);  
   }
 
 }//end class MazeSolver
