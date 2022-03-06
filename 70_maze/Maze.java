@@ -130,18 +130,23 @@ class MazeSolver
     delay( FRAME_DELAY ); //slow it down enough to be followable
     
     //check if on path
-    if( x < 0 || x >= w || y < 0 || y >= h || _maze[x][y] == VISITED_PATH ||  ){
-      //check if _solved becomes true
-      if( _maze[x][y] == EXIT ) {
-        //do we need to add code to move player here
-        delay(1000);
-        System.out.println("SOLVED!");
-        _solved = true;
-      } 
-      else return;
+    try {
+
+        if( _maze[x][y] == EXIT ) {
+            //do we need to add code to move player here
+            delay(1000);
+            System.out.println("SOLVED!");
+            _solved = true;
+        } 
+
+        if(!onPath(x, y)) {
+            return;
+        }
+    }
+    catch (ArrayIndexOutOfBoundsException e) {
+        return;
     }
   
-     
     //deactivate if solved
     if ( _solved ) {
       delay(1000);
