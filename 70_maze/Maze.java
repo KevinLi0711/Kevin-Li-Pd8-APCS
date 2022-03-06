@@ -138,8 +138,7 @@ class MazeSolver
             System.out.println("SOLVED!");
             _solved = true;
         } 
-
-        if(!onPath(x, y)) {
+        else if(!onPath(x, y)) {
             return;
         }
     }
@@ -152,11 +151,6 @@ class MazeSolver
       delay(1000);
       System.out.println("MAZE SOLVED!");
       System.exit(0);
-    }
-
-    //checks if invalid object
-    if ( _maze[x][y] ==  WALL || _maze[x][y] == VISITED_PATH || _maze[x][y] == HERO) {
-      return;
     }
     
     //otherwise, recursively solve maze from next pos over,
@@ -172,9 +166,9 @@ class MazeSolver
       solve(x, y + 1); //right
       solve(x + 1, y); //down
 
+      _maze[x][y] = VISITED_PATH;
       System.out.println( this ); //refresh screen
       //set period
-      _maze[x][y] = VISITED_PATH;
     }
     
   }
