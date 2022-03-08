@@ -1,5 +1,7 @@
 public class Mysterion {
 
+
+    //
     public static String mystery(int[] arr, int a, int b, int c) {
         int temp;
 
@@ -44,6 +46,7 @@ public class Mysterion {
         int[] arr2 = {3, 2, 1, 2, 3};
 
         System.out.println(mystery(arr, 0, 4, 2)); //target is 5, bounds are indexes 0 and 4
+        System.out.println(mystery(arr1, 0, 2, 0)); //target is 1, bounds are indexes 0 and 4
         System.out.println(mystery(arr1, 0, 2, 0)); //target is 1, bounds are indexes 0 and 2
         System.out.println(mystery(arr2, 0, 4, 2)); //target is 1, bounds are indexes 0 and 4
     }
