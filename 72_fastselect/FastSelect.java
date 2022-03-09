@@ -30,7 +30,9 @@ DISCO
     Using partition on the yth smallest value places that value at index y - 1
 
 QCC
-    
+    Is there exit early for fastselect like there is in bubble sort?
+    Is fastselect amortized?
+    What other ways can partitioned be used?
 */
 
 public class FastSelect {
