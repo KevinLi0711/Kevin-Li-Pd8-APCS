@@ -22,11 +22,11 @@ public class FastSelect {
 
         //If the index of pivot is less than y, partition the upper half
         if (indexOfPivot < (y - 1)) {
-            return ythSmallest(arr, middle, upper, y);
+            return ythSmallest(arr, indexOfPivot, upper, y);
         }
         //If the index of pivot is greater than y, partition the lower half
         else {
-            return ythSmallest(arr, lower, middle, y);
+            return ythSmallest(arr, lower, indexOfPivot, y);
         }
     }
 
