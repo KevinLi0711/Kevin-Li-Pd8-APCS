@@ -10,12 +10,16 @@
  *
  * 1. Summary of QuickSort algorithm:
  * QSort(arr):
- *
+ * Partitions the array into two parts, we know the pivot point is in the right place. Now we have two unsorted regions and we're going to split both
+ regions into two parts again, recursively calling this down. The base case is when there is only one element in the region, and thus we will know that
+ region is sorted. 
  * 2a. Worst pivot choice and associated run time:
- *
+ * Picking the first element could possibly be the worst case scenario is the data is inversely sorted, as it will have a n^2 time complexity.
  * 2b. Best pivot choice and associated run time:
- *
+ * Picking the middle element would result in the best average amount of time, and if the data is already sorted time complexity would just be O(n)
  * 3. Approach to handling duplicate values in array:
+ * We can simply ignore duplicate values by using an <= or >= sign and we can treat them as just another number within the array that needs to be sorted.
+ 
  *
  * DISCO
  *  - The run time of Quick Sort is very dependent on the chosen pivot, and since the pivot is chosen from an unsorted list, 
@@ -67,6 +71,7 @@ public class QuickSort
   }
   //--------------^  HELPER METHODS  ^--------------
 
+  //Picks the middle value at the index in the middle of loPos and hiPos (rounded down cause int division)
    public static int partition( int arr[], int loPos, int hiPos)
   {
     int pvtPos = (loPos + hiPos) / 2;
@@ -103,8 +108,9 @@ public class QuickSort
     if (hiPos <= loPos) {
         return;
     }
-
+    
     pvtPos = partition(d, loPos, hiPos);
+    //printArr(d);
     
     //Partition the left of pvtPos
     qsortHelper(d, loPos, pvtPos - 1);
@@ -164,6 +170,19 @@ public class QuickSort
     qsort( arrMatey );
     System.out.println("arrMatey after sort: " );
     printArr(arrMatey);
+
+
+    //Testing worst case
+    int[] worst = {6, 7, 4, 8, 3, 5, 2, 1};
+    System.out.println("worst after sort: " );
+    qsort(worst);
+
+    System.out.println("\n");
+    
+    //Testing best case
+    int[] best = {1, 2, 3, 4, 5, 6, 7, 8};
+    System.out.println("best after sort: " );
+    qsort(best);
 
   }//end main
 
