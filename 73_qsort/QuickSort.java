@@ -99,9 +99,9 @@ public class QuickSort
 
     pvtPos = partition(d, loPos, hiPos);
     
-    //Partition the right of the pvtPos
+    //Partition the left of pvtPos
     qsortHelper(d, loPos, pvtPos - 1);
-    //Partition the right of the pvtPos
+    //Partition the right of pvtPos
     qsortHelper(d, pvtPos + 1, hiPos);
   }
 
