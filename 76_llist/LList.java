@@ -2,9 +2,7 @@
 Team Three Kevins: Kevin Xiao, Kevin Li, Hamim Seam (honorary Kevin)
 APCS
 HW76 -- Creating List using nodes
-<yyyy>-<mm>-<dd>
 time spent: .6 hours
-
  * class LList
  * Implements a linked list of LLNodes, each containing String data
  **/
@@ -31,12 +29,12 @@ public class LList implements List //interface def must be in this dir
     LLNode temp = _head;
     LLNode newNode = new LLNode(null, null);
 
-    while (temp.getCar() != null) {
-        temp = temp.getCdr();
+    while (temp.getCargo() != null) {
+        temp = temp.getNext();
     }
     
-    temp.setCar(newVal);
-    temp.setCdr(newNode);
+    temp.setCargo(newVal);
+    temp.setNext(newNode);
 
     _size++;
 
@@ -51,10 +49,10 @@ public class LList implements List //interface def must be in this dir
 
     LLNode temp = _head;
     for(int i = 0; i < index; i++) {
-        temp = temp.getCdr();
+        temp = temp.getNext();
     }
 
-    return temp.getCar();
+    return temp.getCargo();
   }
 
 
@@ -66,10 +64,10 @@ public class LList implements List //interface def must be in this dir
 
     LLNode temp = _head;
     for (int i = 0; i < index; i++) {
-        temp = temp.getCdr();
+        temp = temp.getNext();
     }
   
-    return temp.setCar(newVal);
+    return temp.setCargo(newVal);
   }
 
 
@@ -90,9 +88,9 @@ public class LList implements List //interface def must be in this dir
     LLNode temp = _head;
 
     for (int i = 0; i < _size; i++) {
-        output += temp.getCar();
+        output += temp.getCargo();
         output += " ";
-        temp = temp.getCdr();
+        temp = temp.getNext();
     }
 
     output += "]";
