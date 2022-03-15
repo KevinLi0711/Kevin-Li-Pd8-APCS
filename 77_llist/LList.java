@@ -48,6 +48,48 @@ public class LList implements List //interface def must be in this dir
     return true;
   }
 
+  public void add (int index, String newVal) {
+
+    if (index == 0) {
+        add(newVal);
+        return;
+    }
+
+    LLNode part1 = _head;
+    LLNode part2;
+    LLNode addedNode;
+
+    for (int i = 0; i < index - 1; i++) {
+        part1 = part1.getNext();
+    }
+
+    part2 = part1.getNext();
+    addedNode = new LLNode(newVal, part2);
+
+    part1.setNext(addedNode);
+    _size++;
+
+  }
+
+  //does not work for index 0
+  public String remove (int index) {
+    LLNode part1 = _head;
+    LLNode part2;
+    String removedNode;
+
+    for (int i = 0; i < index - 1; i++) {
+        part1 = part1.getNext();
+    }
+
+    part2 = part1.getNext();
+    removedNode = "[ " + part2.getCargo() + " ]";
+    part2 = part2.getNext();
+
+    part1.setNext(part2);
+
+    _size--;
+    return removedNode;
+  }
 
   public String get( int index )
   {
@@ -135,6 +177,20 @@ public class LList implements List //interface def must be in this dir
     System.out.println( "...and now 2nd item is: " + james.set(1,"got") );
 
     System.out.println( james );
+
+    System.out.println( "removed item: " + james.remove(2));
+    System.out.println(james);
+
+    james.add(2, "a");
+    System.out.println("added removed item back");
+    System.out.println(james);
+
+    james.add(0, "do");
+    System.out.println("added item to index 0");
+    System.out.println(james);
+
+    System.out.println( "removed item: " + james.remove(0));
+    System.out.println(james);
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }
