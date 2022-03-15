@@ -1,27 +1,36 @@
 /***
 Team Three Kevins: Kevin Xiao, Kevin Li, Hamim Seam (honorary Kevin)
 APCS
-HW76 -- Creating List using nodes
+HW77 -- Removal
 time spent: .6 hours
  * class LList
  * Implements a linked list of LLNodes, each containing String data
  
- DISCO:
- -The list we are implementing have most of the same properties as the interface list we implemented within orderedarraylist
- -Java Garbage Collector is pacman the great incarnated.
- -Traversing this type of list is reminiscent of using Scanner on a text file
- -Getting and setting elements in an LList has an order of O(n), while they are O(1) in typical Java arrays
- 
+ DISCO: 
+ The crucial trick to implementing add and remove methods are to know how to change the pointers of the nodes so that we
+ can insert a new node in between two nodes or completely wipe a node from existence through remove.
+ Making temporary variables to store our cargos is very useful!
  QCC:
- -Why is this important to us?
- -Considering that retrieving a value at an array's index is O(1) while its O(n) for our LLNodes...
- Is there a more convenient way to use temp or an alternative when we need to traverse longer spans of nodes?
- (ex: a swap method would need to access to two nodes' locations)
- -How might this nodal form of a list affect using sorts and seearches?
- -When might this kind of list be more beneficial than typical Java arrays, if ever?
- 
- **/
+ Why is this useful to us? Why do we need to know how to add and subtract nodes?
+ What is LinkedList? We heard this term from today in class and we are terrified by the connotations associated with this word
+ from the intertrash.
 
+ ADD ALGO:
+ 0. If the insertion index is 0, then add the new value at the start of the list and return
+ 1. Move the LLNode "before" so that it points to the node at the index before the insertion index
+ 2. Move the LLNode "after" so that it points to the node after "before"
+ 3. create a new node that has the inputted value, and which points to "afterIndex"
+ 4. make "before" point to the new node
+
+ REMOVE ALGO:
+ 0. If the removal index is 0, then change _head so that it points to the next node
+ 1. Move "before" so that it points to the node at the index before the removal index
+ 2. Move "after" so that it points to the node after "before"
+ 3. Store the current value of "after" in a string called removedNode
+ 4. Advance "after" by 1 node
+ 5. make "before" point to "after"
+ 6. return removedNode 
+ **/
 public class LList implements List //interface def must be in this dir
 {
 
@@ -49,43 +58,58 @@ public class LList implements List //interface def must be in this dir
   }
 
   public void add (int index, String newVal) {
-
+    if ( index < 0 || index >= size() )
+      throw new IndexOutOfBoundsException();
     if (index == 0) {
         add(newVal);
         return;
     }
 
-    LLNode part1 = _head;
-    LLNode part2;
+    LLNode before = _head;
+    LLNode after;
     LLNode addedNode;
 
     for (int i = 0; i < index - 1; i++) {
-        part1 = part1.getNext();
+        before = before.getNext();
     }
 
-    part2 = part1.getNext();
-    addedNode = new LLNode(newVal, part2);
+    after = before.getNext();
+    addedNode = new LLNode(newVal, after);
 
-    part1.setNext(addedNode);
+    before.setNext(addedNode);
     _size++;
 
   }
 
   //does not work for index 0
   public String remove (int index) {
-    LLNode part1 = _head;
-    LLNode part2;
+    if ( index < 0 || index >= size() )
+      throw new IndexOutOfBoundsException();
     String removedNode;
+    if (index == 0){
+	removedNode = _head.getCargo();
+	_head = _head.getNext();
+	_size--;
+	return removedNode;
+    }
+    LLNode before = _head;
+	  // Initialize temp variable
+    LLNode after;
+	  // Initialize temp variable
+    
 
     for (int i = 0; i < index - 1; i++) {
-        part1 = part1.getNext();
+        before = before.getNext();
+	    //before is one before our target node now
     }
 
-    part2 = part1.getNext();
-    removedNode = "[ " + part2.getCargo() + " ]";
-    part2 = part2.getNext();
+    after = before.getNext();
+	  // After is our target number
+    removedNode = "[ " + after.getCargo() + " ]";
+    after = after.getNext();
+	  //after becomes the node after the target
 
-    part1.setNext(part2);
+    before.setNext(after);
 
     _size--;
     return removedNode;
@@ -191,6 +215,7 @@ public class LList implements List //interface def must be in this dir
 
     System.out.println( "removed item: " + james.remove(0));
     System.out.println(james);
+
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }
