@@ -5,6 +5,20 @@ HW76 -- Creating List using nodes
 time spent: .6 hours
  * class LList
  * Implements a linked list of LLNodes, each containing String data
+
+ DISCO:
+ -The list we are implementing have most of the same properties as the interface list we implemented within orderedarraylist
+ -Java Garbage Collector is pacman the great incarnated.
+ -Traversing this type of list is reminiscent of using Scanner on a text file
+ -Getting and setting elements in an LList has an order of O(n), while they are O(1) in typical Java arrays
+ 
+ QCC:
+ -Why is this important to us?
+ -Considering that retrieving a value at an array's index is O(1) while its O(n) for our LLNodes...
+ Is there a more convenient way to use temp or an alternative when we need to traverse longer spans of nodes?
+ (ex: a swap method would need to access to two nodes' locations)
+ -How might this nodal form of a list affect using sorts and seearches?
+ -When might this kind of list be more beneficial than typical Java arrays, if ever?
  **/
 
 public class LList implements List //interface def must be in this dir
