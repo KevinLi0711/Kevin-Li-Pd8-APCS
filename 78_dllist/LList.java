@@ -59,33 +59,31 @@ public class LList implements List //interface def must be in this dir
 
   public void add (int index, String newVal) {
       
-    if ( index < 0 || index > size() )
-      throw new IndexOutOfBoundsException();
+    if ( index < 0 || index > size() ) {
+        throw new IndexOutOfBoundsException();
+    }
     
     if (index == 0) {
         add(newVal);
         return;
     }
 
-    DLLNode before = _head;
-    DLLNode after;
+    DLLNode before = getNode(index - 1);
+    DLLNode after = before.getNext();
     DLLNode addedNode;
 
-    for (int i = 0; i < index - 1; i++) {
-        before = before.getNext();
-    }
-
-    after = before.getNext();
     addedNode = new DLLNode(before, newVal, after);
 
     before.setNext(addedNode);
+    after.setPrevious(addedNode);
     _size++;
 
   }
 
   public String remove (int index) {
-    if ( index < 0 || index >= size() )
-      throw new IndexOutOfBoundsException();
+    if ( index < 0 || index >= size() ) {
+        throw new IndexOutOfBoundsException();
+    }
 
     String removedNode;
     if (index == 0){
@@ -94,24 +92,17 @@ public class LList implements List //interface def must be in this dir
 	    _size--;
 	    return removedNode;
     }
-    DLLNode before = _head;
-	  // Initialize temp variable
-    DLLNode after;
-	  // Initialize temp variable
-    
 
-    for (int i = 0; i < index - 1; i++) {
-        before = before.getNext();
-	    //before is one before our target node now
-    }
-
-    after = before.getNext();
-	  // After is our target number
+    DLLNode before = getNode(index - 1);
+    DLLNode after = before.getNext();
     removedNode = "[ " + after.getCargo() + " ]";
-    after = after.getNext();
-	  //after becomes the node after the target
 
+    after = after.getNext();
     before.setNext(after);
+
+    if (index != size() - 1) {
+        after.setPrevious(before);
+    }
 
     _size--;
     return removedNode;
@@ -119,13 +110,11 @@ public class LList implements List //interface def must be in this dir
 
   public String get( int index )
   {
-    if ( index < 0 || index >= size() )
-      throw new IndexOutOfBoundsException();
-
-    DLLNode temp = _head;
-    for(int i = 0; i < index; i++) {
-        temp = temp.getNext();
+    if ( index < 0 || index >= size() ) {
+        throw new IndexOutOfBoundsException();
     }
+
+    DLLNode temp = getNode(index);
 
     return temp.getCargo();
   }
@@ -134,17 +123,24 @@ public class LList implements List //interface def must be in this dir
   public String set( int index, String newVal )
   {
 
-    if ( index < 0 || index >= size() )
-      throw new IndexOutOfBoundsException();
+    if ( index < 0 || index >= size() ) {
+        throw new IndexOutOfBoundsException();
+    }
+
+    DLLNode temp = getNode(index);
+  
+    return temp.setCargo(newVal);
+  }
+
+  public DLLNode getNode( int index ) {
 
     DLLNode temp = _head;
     for (int i = 0; i < index; i++) {
         temp = temp.getNext();
     }
-  
-    return temp.setCargo(newVal);
-  }
 
+    return temp;
+  }
 
   //return number of nodes in list
   public int size()
