@@ -58,7 +58,7 @@ public class LList implements List //interface def must be in this dir
   }
 
   public void add (int index, String newVal) {
-    if ( index < 0 || index >= size() )
+    if ( index < 0 || index > size() )
       throw new IndexOutOfBoundsException();
     
     if (index == 0) {
@@ -215,6 +215,13 @@ public class LList implements List //interface def must be in this dir
     System.out.println(james);
 
     System.out.println( "removed item: " + james.remove(0));
+    System.out.println(james);
+
+    System.out.println( "removed item: " + james.remove(3));
+    System.out.println(james);
+
+    james.add(3, "beat");
+    System.out.println("added removed item back");
     System.out.println(james);
 
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
