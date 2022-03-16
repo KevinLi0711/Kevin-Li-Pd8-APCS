@@ -4,7 +4,7 @@ APCS
 HW77 -- Removal
 time spent: .6 hours
  * class LList
- * Implements a linked list of LLNodes, each containing String data
+ * Implements a linked list of DLLNodes, each containing String data
  
  DISCO: 
  The crucial trick to implementing add and remove methods are to know how to change the pointers of the nodes so that we
@@ -17,8 +17,8 @@ time spent: .6 hours
 
  ADD ALGO:
  0. If the insertion index is 0, then add the new value at the start of the list and return
- 1. Move the LLNode "before" so that it points to the node at the index before the insertion index
- 2. Move the LLNode "after" so that it points to the node after "before"
+ 1. Move the DLLNode "before" so that it points to the node at the index before the insertion index
+ 2. Move the DLLNode "after" so that it points to the node after "before"
  3. create a new node that has the inputted value, and which points to "afterIndex"
  4. make "before" point to the new node
 
@@ -35,7 +35,7 @@ public class LList implements List //interface def must be in this dir
 {
 
   //instance vars
-  private LLNode _head;
+  private DLLNode _head;
   private int _size;
 
   // constructor -- initializes instance vars
@@ -50,7 +50,7 @@ public class LList implements List //interface def must be in this dir
 
   public boolean add( String newVal )
   {
-    LLNode temp = new LLNode(newVal, _head);
+    DLLNode temp = new DLLNode(null, newVal, _head);
     _head = temp;
     _size++;
 
@@ -58,6 +58,7 @@ public class LList implements List //interface def must be in this dir
   }
 
   public void add (int index, String newVal) {
+      
     if ( index < 0 || index > size() )
       throw new IndexOutOfBoundsException();
     
@@ -66,16 +67,16 @@ public class LList implements List //interface def must be in this dir
         return;
     }
 
-    LLNode before = _head;
-    LLNode after;
-    LLNode addedNode;
+    DLLNode before = _head;
+    DLLNode after;
+    DLLNode addedNode;
 
     for (int i = 0; i < index - 1; i++) {
         before = before.getNext();
     }
 
     after = before.getNext();
-    addedNode = new LLNode(newVal, after);
+    addedNode = new DLLNode(before, newVal, after);
 
     before.setNext(addedNode);
     _size++;
@@ -93,9 +94,9 @@ public class LList implements List //interface def must be in this dir
 	    _size--;
 	    return removedNode;
     }
-    LLNode before = _head;
+    DLLNode before = _head;
 	  // Initialize temp variable
-    LLNode after;
+    DLLNode after;
 	  // Initialize temp variable
     
 
@@ -121,7 +122,7 @@ public class LList implements List //interface def must be in this dir
     if ( index < 0 || index >= size() )
       throw new IndexOutOfBoundsException();
 
-    LLNode temp = _head;
+    DLLNode temp = _head;
     for(int i = 0; i < index; i++) {
         temp = temp.getNext();
     }
@@ -136,7 +137,7 @@ public class LList implements List //interface def must be in this dir
     if ( index < 0 || index >= size() )
       throw new IndexOutOfBoundsException();
 
-    LLNode temp = _head;
+    DLLNode temp = _head;
     for (int i = 0; i < index; i++) {
         temp = temp.getNext();
     }
@@ -159,11 +160,11 @@ public class LList implements List //interface def must be in this dir
   public String toString()
   {
     String output = "[ ";
-    LLNode temp = _head;
+    DLLNode temp = _head;
 
     for (int i = 0; i < _size; i++) {
         output += temp.getCargo();
-        output += " ";
+        output += ", ";
         temp = temp.getNext();
     }
 
