@@ -11,7 +11,7 @@ Activity 7
 4. 
     a) dealMyCards() is used in the constructor for ElevensBoard and in newGame()
     b) isLegal() and anotherPlayIsPossible() because both need to check card combinations
-    c) 
+    c) look at README
     d) public static void printCards(ElevensBoard board) {
         List<Integer> cIndexes = board.cardIndexes()
             for (Integer i : cindexes) {
