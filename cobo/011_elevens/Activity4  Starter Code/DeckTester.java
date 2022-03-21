@@ -51,6 +51,17 @@ public class DeckTester {
 		System.out.println();
 		System.out.println();
 
-		/* *** TO BE COMPLETED IN ACTIVITY 4 *** */
+        String[] r = {"ace", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "jack", "queen", "king"};
+		String[] s = {"diamonds", "clubs", "hearts", "spades"};
+		int[] p = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
+		Deck e = new Deck(r, s, p);
+
+        System.out.println("e: " + e);
+        e.shuffle();
+        System.out.println("e shuffled once: " + e);
+        e.shuffle();
+        System.out.println("e shuffled twice: " + e);
+        e.shuffle();
+        System.out.println("e shuffled thrice: " + e);
 	}
 }

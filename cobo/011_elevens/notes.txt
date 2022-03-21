@@ -1,3 +1,38 @@
+Activity 2
+
+1. A deck is a list of individual cards, almost like how a herd is a group of animals.
+2. The deck contains 6 elements because there will be a different suitfor every single rank value, and since there are 3 rank values and 2 suits,
+there will be 6 total card elements.
+3. Ranks = two, three, four, five, six, seven, eight, nine, ten, jacks, queen, king, ace.
+ Suits = spades, hearts, clover, diamond.
+ PointValue = 2, 3, 4, 5, 6, 7, 8 ,9, 10, 10, 10, 10, 11
+ 4.The order of the ranks and pointvalue array matters because we need to pair the pointvalues to the right rank cards as they are matched together
+ by their position in their respective arrays.
+ 
+ Activity 3
+ 
+ 1. public static String flip(){
+   if (Math.random() <= 0.66){
+      return "heads";
+   else {
+      return "tails";
+   }
+ }
+ 2. public static boolean arePermutations(int[] kevin, int[] anotherkevin){
+    for (int i = 0; i < kevin.length; i++){
+       for (int j = 0; j < anotherkevin.length, j++){
+           if (kevin[i] == anotherkevin[j]){
+              break;
+           }
+           if (j == anotherkevin.length - 1){
+             return false;
+           }
+       }
+    }
+    return true;
+}
+3. 1 and 2. 1 would switch the places of 1 and 4, and 2 would switch the places of 2 and 3.
+
 Activity 7
 1. A deck of cards and a board to place the cards on, so for instance variables, we would need a Deck to draw from, and an array of Cards to represent the board
 2. 
