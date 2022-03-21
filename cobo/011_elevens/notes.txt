@@ -18,6 +18,7 @@ there will be 6 total card elements.
       return "tails";
    }
  }
+
  2. public static boolean arePermutations(int[] kevin, int[] anotherkevin){
     for (int i = 0; i < kevin.length; i++){
        for (int j = 0; j < anotherkevin.length, j++){
@@ -32,6 +33,16 @@ there will be 6 total card elements.
     return true;
 }
 3. 1 and 2. 1 would switch the places of 1 and 4, and 2 would switch the places of 2 and 3.
+
+ Activity 6
+
+ 1. 5 of hearts + 6 of clubs
+    6 of clubs + 5 of clubs
+
+ 2. Yes because if the deck is empty, then the cards remaining on the board must be removable, and the only way to remove 3 cards is a JQK trio
+
+ 3. It would be best to go with plays that diversify the cards on board, so that there is a higher chance of getting a match. 
+ This means JQK trios should be prioritized because they open up the most space. Then it would be best to remove pairs of cards that have duplicates on the board
 
 Activity 7
 1. A deck of cards and a board to place the cards on, so for instance variables, we would need a Deck to draw from, and an array of Cards to represent the board
