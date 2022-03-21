@@ -1,3 +1,19 @@
+The Real Three Kevins (Kevins Li, Xiao, Chen)
+APCS
+Elevens lab
+Time spent : 3 hours
+
+DISCO:
+
+Collegeboard dumb (but we already knew this)
+Assertion statements cool.
+
+QCC:
+
+Why touch grass when you can code for APCS?
+What is the meaning of life.
+
+
 Activity 2
 
 1. A deck is a list of individual cards, almost like how a herd is a group of animals.
