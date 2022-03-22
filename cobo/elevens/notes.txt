@@ -71,7 +71,7 @@ there will be 6 total card elements.
  Buggy4: deal()
     - isEmpty() seems to run fine, since the assertion that deck d, with size 1 is not empty, is true
     - deal() should returns null if the deck is empty
-    - if nothing is worng with isEmpty(), then the return statement in deal() might be placed such that it runs regardless of if isEmpty() is true or false
+    - if nothing is worng with isEmpty(), then the return null statement in deal() might be placed such that it runs regardless of if isEmpty() is true or false
 
  Activity 6
 
