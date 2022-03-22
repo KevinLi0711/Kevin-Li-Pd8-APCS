@@ -48,7 +48,30 @@ there will be 6 total card elements.
     }
     return true;
 }
-3. 1 and 2. 1 would switch the places of 1 and 4, and 2 would switch the places of 2 and 3.
+
+ 3. 1 and 2. 1 would switch the places of 1 and 4, and 2 would switch the places of 2 and 3.
+
+
+ Activity 5
+ 
+ Buggy1: isEmpty()
+    - When testOneCard is run, a card is dealt using deal(), which decreases the size of the deck from 1 to 0 before returning the card at index 0.
+    - Then testEmpty is run on the deck of size 0, testEmpty also deals a card with deal(), but because size is 0, the method attempts to get a card at index -1
+    - Normally, this wouldn't happen because if size is 0 / isEmpty(), then deal() just returns null
+    - But in this case, deal() proceeds, so something is wrong with isEmpty()
+
+ Buggy2: maybe the Deck constructor?
+    - There's doesn't look to be anything else it could be, given how soon the error occurred
+    - the size of the deck was probably set incorrectly
+    - The line in which size takes the value of the length of the card list might have been placed before the cards were added
+
+ Buggy 3: shuffle()
+    - The for loop in shuffle() might have the wrong comparator (i.e. running the loop while k < 0), making the loop not run at all
+
+ Buggy4: deal()
+    - isEmpty() seems to run fine, since the assertion that deck d, with size 1 is not empty, is true
+    - deal() should returns null if the deck is empty
+    - if nothing is worng with isEmpty(), then the return statement in deal() might be placed such that it runs regardless of if isEmpty() is true or false
 
  Activity 6
 
