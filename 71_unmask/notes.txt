@@ -1,0 +1,37 @@
+// Suspicious Oranges: Weichen Liu, Kevin Li, Hamim Seam
+// APCS pd8
+// HW71 -- Tracing a new Sort Algorithm
+// 2022-03-07m
+// time spent: 0.9 hrs
+
+ * DISCO
+ * - The list is not always sorted when we go through this algorithm. However, we do know that values less than the split is to the left of it and vice versa. 
+ *
+ * QCC
+ * - What are the benefits of returning an integer value for mysterion. 
+ *
+ * q0: What does it do?
+ * a0: List is partitioned into two smaller arrays.
+ *     Elements less than the element we want to compare the rest of the element to is moved to the left of the array.
+ *     Elements greater than the element we want to compare the rest of the element to is moved to the right of the array.
+ *     That element we were comparing the rest of the list to is moved to where it belongs. 
+ * 
+ * q1: O(?)
+ * a1: O(n) because there is one for loop
+
+  /**
+   * int relativeSort(int[],int,int,int)
+   * DESCRIPTION
+   * Array is partitioned into two subarrays with a split(element of index splitter).
+   * Elements to the left of split is less than split.
+   * Elements to the right of split is greater than split. 
+   * Split is adjusted to where it should be. 
+   *
+   *
+   * @param arr
+   * @param a -- lo -- The beginning index we use for partitioning
+   * @param b -- hi -- The end index we use for partitioning 
+   * @param c -- splitter -- The index of element that we compare the rest of the elements of the list to. 
+   * @return int 
+   *
+   */

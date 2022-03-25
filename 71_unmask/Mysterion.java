@@ -88,7 +88,7 @@ public class Mysterion
 
 
   /**
-   * int mysterion(int[],int,int,int)
+   * int relativeSort(int[],int,int,int)
    * DESCRIPTION
    * Array is partitioned into two subarrays with a split(element of index splitter).
    * Elements to the left of split is less than split.
@@ -130,19 +130,14 @@ public class Mysterion
   {
 
     //init test arrays of magic numbers
-    int[] arr1 = {1,3,2};
+    int[] arr1 = {8,21,17,69,343};
     int[] arr3 = {1,28,33,4982,37};
     int[] arr4 = {5,4,17,9000,6};
     int[] arr5 = {3,0,16,599,1024};
-    int[] arr6 = {4, 7, 1, 2, 9};
-    int[] arr7 = {8, 7, 2, 11, 13};
 
-    relativeSort(arr1, 0, 2, 1);
-    printArr(arr1);
 
     // run relativeSort on each array,
     // holding a & b fixed, varying c...
-    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     for( int testC = 0; testC < 5; testC++ ) {
     System.out.println("arr1: ");
     printArr(arr1);
@@ -176,6 +171,7 @@ public class Mysterion
     printArr(arr5);
     System.out.println("-----------------------");
     }
+        /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }//end main
 
