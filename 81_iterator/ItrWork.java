@@ -14,6 +14,17 @@ DISCO
 
 QCC
 
+Summaria la uno:
+
+The Iterator interface has three indigenous methods being next(), hasNext(), and remove(). Traverses the list like its a linked list, hopping from one element
+of the list to the next. We can see the obvious similarities between the iterator interface and a for each loops, as they employ similar logic and both
+operating upon lists. Perhaps the Iterator interface has some hidden advantages to a for each loop?
+
+Summaria la dos:
+
+The Iterator interface in the skeleton is invoked with a dot operator, and then is used within a while loop. The while loop allows us to work with less information
+than if we were to employ a for loop, but we see no visible differences between the iterator interface and a for each loop. Each of the methods treat elements of the
+list like nodes within a link list, seeking to traverse the list towards the selected elements.
 */
 
 /***
