@@ -264,7 +264,7 @@ public class LList<T> implements List<T> //Q: Why no "implements Iterable" ? A: 
     //return true if iteration has more elements.
     public boolean hasNext() 
     {
-      return (_dummy.getNext() != null);
+      return (_dummy != null);
     }
 
 
