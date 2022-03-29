@@ -14,11 +14,13 @@ time spent: .5 hours
 
 /***
     DISCO
-        - 
+        -We found using the end of the array as the top of the stack to be most convenient, as we can easily pop and push by adding onto or removing the last element.
+	    Had we used the start of the array, we'd have to shift the rest of the elements (akin to pulling a pancake off the bottom of a stack of them).
     QCC
         - With the way we implemented push, there isn't really any pushing going on. We just treat the end of the array as the top. 
         But Nafiz on Piazza mentioned that adding to the beginning of the array would be more true to the name. 
         If we did it that way, what would be the advantage?
+	    - How might one go about implementing recursive functionality to Latkes?
 ***/
 
 public class Latkes
