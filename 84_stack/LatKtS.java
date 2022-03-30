@@ -1,9 +1,15 @@
 /***
- * class LatKtS
- * SKELETON
- * driver class for Latkes
- * Uses a stack to reverse a text string, check for sets of matching parens.
- **/
+Team Three Kevins: Kevin Xiao, Kevin Li, Hamim Seam
+APCS
+HW84 -- stacks
+2022-03-29
+time spent: 1 hour
+DISCO:
+Peek method was not necessary in implementing our algorithm. Utilizing two stacks allowed us to "cancel" characters out with each other to check if they were matching.
+QCC:
+How to implement recursively? Is it even good to use recursion here?
+How to change method to find matching for every character? Do we just have to bash it and make the computer check every character individually or can we store characters in variables?
+***/
 
 public class LatKtS
 {
@@ -92,6 +98,8 @@ public class LatKtS
     System.out.println(allMatched( "](){([])}" ) ); //false
     System.out.println(allMatched( "(){([])}(" ) ); //false
     System.out.println(allMatched( "()[[]]{{{{((([])))}}}}" ) ); //true
+    System.out.println(allMatched( "" ) ); //true
+    System.out.println(allMatched( "}{][)(" ) ); //false
     /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
       ^~~~~~~~~~~~~~~~AWESOME~~~~~~~~~~~~~~~^*/
   }
