@@ -2,11 +2,17 @@ Team Three Kevins: Kevin Xiao, Kevin Li, Hamim Seam
 APCS
 HW85 -- Leon Leonwood Stack
 2022-03-30
-time spent:
+time spent: .5 hours
 
 DISCO:
-
+    - We can't use add() in ArrayList when we want to push() because add will place the input at the end of the list, 
+    which may not be the top of the stack, since the pop() method doesn't actually remove the the top value
+    - 
 QCC:
+    - So which one's better?
+    - If a LinkedList has both a tail and head pointer, then it probably shouldn't matter whether we add to the front or the end 
+    of the list
+
 
 
 
