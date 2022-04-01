@@ -24,7 +24,7 @@ public class Stckr
 	    System.out.println(cakes.pop());
     }
 
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 1000; i++) {
         cakes.push(i);
         System.out.print(cakes.peekTop());
     }
