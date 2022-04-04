@@ -15,11 +15,13 @@ public class NodeQueue<QUASAR> implements Queue<QUASAR>
 {
 
   LLNode<QUASAR> _head;
+  LLNode<QUASAR> _tail;
   int _size;
 
   public NodeQueue()
   {
     _head = null;
+    _tail = null;
     _size = 0;
   }
 
@@ -33,10 +35,7 @@ public class NodeQueue<QUASAR> implements Queue<QUASAR>
 
     QUASAR tmp = _head.getCargo();
 
-    if (_size > 1) {
-        _head = _head.getNext();
-    }
-
+    _head = _head.getNext();
     _size--;
     return tmp;
   }
@@ -47,16 +46,13 @@ public class NodeQueue<QUASAR> implements Queue<QUASAR>
   {
     if (isEmpty()) {
         _head =  new LLNode<QUASAR>(x, null);
+        _tail = _head;
         _size++;
         return;
     }  
 
-    LLNode<QUASAR> tmp = _head;
-    for (int i = 0; i < _size - 1; i++) {
-        tmp = tmp.getNext();
-    }
-
-    tmp.setNext(new LLNode<QUASAR>(x, null));
+    _tail.setNext(new LLNode<QUASAR>(x, null));
+    _tail = _tail.getNext();
     _size++;
   }
 
@@ -107,11 +103,11 @@ public class NodeQueue<QUASAR> implements Queue<QUASAR>
     System.out.println(test + "\n");
 
     NodeQueue<Integer> yes = new NodeQueue<Integer>();
-    cart.enqueue(5);
-    cart.enqueue(7);
-    cart.enqueue(1);
-    cart.enqueue(1);
-    cart.enqueue(9);
+    yes.enqueue(5);
+    yes.enqueue(7);
+    yes.enqueue(1);
+    yes.enqueue(1);
+    yes.enqueue(9);
     int sum = 0;
     while (!yes.isEmpty()) {
         sum += yes.dequeue();
