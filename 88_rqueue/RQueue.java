@@ -74,12 +74,12 @@ public class RQueue<SWASHBUCKLE> implements Queue<SWASHBUCKLE>
 
     //if the chosen index is the end, update the end pointer
     if (randomIndex == _size - 1) {
-        _end = temp.getNext();
+        _end = temp;
     }
 
     //update size and the random index
-    randomIndex = (int)(Math.random() * _size);
     _size--;
+    randomIndex = (int)(Math.random() * _size);
     
     return output;
   }//O(?)
@@ -177,11 +177,26 @@ public class RQueue<SWASHBUCKLE> implements Queue<SWASHBUCKLE>
     System.out.println("\nnow dequeuing..."); 
     System.out.println( "predicted: " + PirateQueue.peekFront() + " \n " + PirateQueue.dequeue() );
     System.out.println( "predicted: " + PirateQueue.peekFront() + " \n " + PirateQueue.dequeue() );
-    System.out.println( "predicted: " + PirateQueue.peekFront() + " \n " + PirateQueue.dequeue() );
-    System.out.println( "predicted: " + PirateQueue.peekFront() + " \n " + PirateQueue.dequeue() );
+
+    System.out.println( "\n" + PirateQueue ); //for testing toString()...
+    System.out.println( "enqueuing Sparrow: ");
+    PirateQueue.enqueue("Sparrow");
+    System.out.println(PirateQueue + "\n");
+
     System.out.println( "predicted: " + PirateQueue.peekFront() + " \n " + PirateQueue.dequeue() );
     System.out.println( "predicted: " + PirateQueue.peekFront() + " \n " + PirateQueue.dequeue() );
 
+    System.out.println( "\n" + PirateQueue ); //for testing toString()...
+    System.out.println( "enqueuing Jack: ");
+    PirateQueue.enqueue("Jack");
+    System.out.println(PirateQueue + "\n");
+
+    System.out.println( "predicted: " + PirateQueue.peekFront() + " \n " + PirateQueue.dequeue() );
+    System.out.println( "predicted: " + PirateQueue.peekFront() + " \n " + PirateQueue.dequeue() );
+
+    System.out.println( "\n" + PirateQueue );
+
+    /*
     System.out.println("\nnow dequeuing fr empty queue...\n" +
                        "(expect NPE)\n"); 
     System.out.println( PirateQueue.dequeue() );
