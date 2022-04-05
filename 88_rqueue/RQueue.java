@@ -22,6 +22,8 @@ DISCO
     - We can randomize the dequeueing by just shuffling the list when we add 
 QCC
     - the sample() method feels unoptimized
+    - How "shuffled" does the queue have to be?
+    - How is FIIDKO analogous to real life "queues"?
  **/
 
 
