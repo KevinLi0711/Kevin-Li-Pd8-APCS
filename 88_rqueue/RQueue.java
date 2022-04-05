@@ -11,7 +11,17 @@
  *  linkages point opposite direction for O(1) en/dequeuing
  *            N <- N <- ... <- N <- N
  *      _end -^                     ^- _front
- *
+ * 
+Team Three Kevins: Kevin Li, Hamim Seam, Kevin Xiao
+APCS
+HW88 -- Queue with random dequeuing
+2022-04-04
+time spent: 1 hour
+
+DISCO
+    - We can randomize the dequeueing by just shuffling the list when we add 
+QCC
+    - the sample() method feels unoptimized
  **/
 
 
@@ -20,7 +30,7 @@ public class RQueue<SWASHBUCKLE> implements Queue<SWASHBUCKLE>
   //instance variables
   private LLNode<SWASHBUCKLE> _front, _end;
   private int _size;
-  private int randomIndex;
+
 
   // default constructor creates an empty queue
   public RQueue()
@@ -43,56 +53,26 @@ public class RQueue<SWASHBUCKLE> implements Queue<SWASHBUCKLE>
     _end.setNext(new LLNode<SWASHBUCKLE>(enQVal, null));
     _end = _end.getNext();
     _size++;
-    randomIndex = (int)(Math.random() * _size);
-    //sample();
+    sample();
 
-  }//O(?)
+  }//O(n)
 
 
   // remove and return thing at front of queue
   // assume _queue ! empty
   public SWASHBUCKLE dequeue()
   {
-    LLNode<SWASHBUCKLE> temp = _front;
-    SWASHBUCKLE output;
-
-    //if the chosen index is the front of the queue, then just move the front pointer
-    if (randomIndex == 0) {
-        output = _front.getCargo();
-        _front = _front.getNext();
-    } else {
-        //iterate through the list until you reach the index before the chosen index
-        for (int i = 0; i < randomIndex - 1; i++) {
-            temp = temp.getNext();
-        }
-
-        //store the cargo of the next node as the output
-        output = temp.getNext().getCargo();
-        //change the pointer so it skips over the node at the chosen index
-        temp.setNext(temp.getNext().getNext());
-    }
-
-    //if the chosen index is the end, update the end pointer
-    if (randomIndex == _size - 1) {
-        _end = temp;
-    }
-
-    //update size and the random index
+    SWASHBUCKLE output = _front.getCargo();
+    _front = _front.getNext();
     _size--;
-    randomIndex = (int)(Math.random() * _size);
-    
     return output;
-  }//O(?)
+  }//O(1)
 
 
   public SWASHBUCKLE peekFront()
   {
-    LLNode<SWASHBUCKLE> temp = _front;
-    for (int i = 0; i < randomIndex; i++) {
-        temp = temp.getNext();
-    }
-    return temp.getCargo();
-  }//O(?)
+    return _front.getCargo();
+  }//O(1)
 
 
   /***
@@ -135,12 +115,12 @@ public class RQueue<SWASHBUCKLE> implements Queue<SWASHBUCKLE>
     _front = nodes[0];
     _end = nodes[_size - 1];
 
-  }//O(?)
+  }//O(n)
 
   public boolean isEmpty()
   {
     return _front == null;
-  } //O(?)
+  } //O(1)
 
 
   // print each node, separated by spaces
@@ -200,7 +180,6 @@ public class RQueue<SWASHBUCKLE> implements Queue<SWASHBUCKLE>
     System.out.println("\nnow dequeuing fr empty queue...\n" +
                        "(expect NPE)\n"); 
     System.out.println( PirateQueue.dequeue() );
-
     /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
       ^~~~~~~~~~~~~~~~AWESOME~~~~~~~~~~~~~~~^*/
 
