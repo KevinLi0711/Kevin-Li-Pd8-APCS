@@ -8,7 +8,16 @@ public class music {
         ds.setCacheTimeout(15 * 60);
         ds.load();
         ds.printUsageString();
-        System.out.println(ds.hasFields("mass"));
+
+        String[] fields = ds.fieldNames();
+        for (String field : fields) {
+            System.out.println(field);
+        }
+
+        System.out.println(ds.getCacheDirectory());
+
+        //String[] row = ds.fetchStringArray("row");
+
         /*
         ArrayList<Integer> mass = ds.fetchIntList("mass");
         System.out.println("The mass of the meteorite is " + mass);
