@@ -44,7 +44,7 @@ public class LLQueue<QUASAR> implements Queue<QUASAR>
   public QUASAR peekFront()
   {
    return _front.getCargo();
-  }//O(?)
+  }//O(1)
 
 
 
@@ -52,7 +52,7 @@ public class LLQueue<QUASAR> implements Queue<QUASAR>
   public boolean isEmpty()
   {
     return _front == null;
-  } //O(?)
+  } //O(?=1)
  
  public class LLNode<QUASAR>{
     //instance vars
