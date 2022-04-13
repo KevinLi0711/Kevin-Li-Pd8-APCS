@@ -1,8 +1,11 @@
 Priority list
-* addFirst / addLast
-* removeFirst / removeLast
-* peekFirst / peekLast
-* size
-* poll methods
+* addFirst / addLast (done)
+* removeFirst / removeLast (done)
+* peekFirst / peekLast (done)
+* size (done)
+* poll methods (done)
 * offer methods (skipped because we can't know ArrayList's capacity)
-* getFirst / getLast
+* getFirst / getLast (done)
+* iterator (done)
+* descendingIterator (done)
+* contains (done)
