@@ -4,5 +4,5 @@ Priority list
 * peekFirst / peekLast
 * size
 * poll methods
-* offer methods
+* offer methods 
 * getFirst / getLast
