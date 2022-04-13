@@ -1,0 +1,17 @@
+Team Three Kevins: Kevin Li, Hamim Seam, Kevin Xiao
+APCS
+HW90 -- Deque
+2022-04-12
+time spent: 1 hour
+
+DISCO:
+
+Linkedlist already implements deque according to oracle api, while ArrayList doesn't.
+Implementing the deque interface for AL was like writing a wrapper class for ArrayList.
+We can do stuff to the beginning and end of the AL easily!
+
+QCC:
+
+How is offerlast and offerfirst even possible for an arraylist because to implement those, we need to get the capacity of the arraylist.
+Why does linked list already implement deque?
+How is this useful? Does this make working with arraylists more conveninent for us?
