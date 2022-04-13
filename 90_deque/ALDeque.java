@@ -25,11 +25,17 @@ public class ALDeque<T> implements Deque<T>{
   }
     
   public T peekFirst() {
-    return deque.get(0);
+    if (!deque.isEmpty()) {
+      return deque.get(0);
+    }
+    return null;
   }
   
   public T peekLast() {
-    return deque.get(deque.size() - 1);
+    if (!deque.isEmpty()) {
+      return deque.get(deque.size() - 1);
+    }
+    return null;
   }
   
   public int size() {
@@ -58,11 +64,34 @@ public class ALDeque<T> implements Deque<T>{
     return deque.get(deque.size() - 1);
   }
 
-
+  public String toString() {
+      String output = "";
+      for (int i = 0; i < deque.size(); i++) {
+          output += deque.get(i);
+          output += ", ";
+      }
+      return output;
+  }
   public static void main(String[] args) {
       ALDeque kevin = new ALDeque<>();
 
-      System.out.println(kevin.peekFirst());
+      System.out.println(kevin.peekFirst()); //null
+      System.out.println(kevin.peekLast()); //null
+
+      kevin.addFirst("hello");
+      System.out.println(kevin);
+      kevin.addFirst("hi");
+      kevin.addLast("hey");
+      System.out.println(kevin);
+
+      System.out.println(kevin.peekFirst()); //hi
+      System.out.println(kevin.peekLast()); //hey
+
+      kevin.pollLast();
+      System.out.println(kevin);
+      kevin.pollFirst();
+      System.out.println(kevin);
+
   }
 
   /*
