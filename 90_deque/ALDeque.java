@@ -1,7 +1,11 @@
 import java.util.ArrayList;
 
 public class ALDeque<T> implements Deque<T>{
-  ArrayList<T> deque = new ArrayList<T>();
+  ArrayList<T> deque;
+
+  public ALDeque() {
+      deque = new ArrayList<T>();
+  }
   
   public void addFirst( T element) {
     deque.add(0, element);
