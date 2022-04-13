@@ -1,3 +1,5 @@
+import java.util.Iterator;
+
 public interface Deque<T> {
     public void addFirst( T element );
     public void addLast( T element );
@@ -16,7 +18,12 @@ public interface Deque<T> {
     public T getFirst();
     public T getLast();
 
-    /*
+    public Iterator<T> iterator();
+    public Iterator<T> descendingIterator();
+
+    public boolean contains(T o);
+
+    /* 
     public boolean offerFirst( T element );
     public boolean offerLast( T element );
     */

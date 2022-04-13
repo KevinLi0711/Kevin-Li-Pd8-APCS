@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class ALDeque<T> implements Deque<T>{
   ArrayList<T> deque;
@@ -75,28 +76,27 @@ public class ALDeque<T> implements Deque<T>{
       }
       return output;
   }
-  public static void main(String[] args) {
-      ALDeque kevin = new ALDeque<>();
 
-      System.out.println(kevin.peekFirst()); //null
-      System.out.println(kevin.peekLast()); //null
-
-      kevin.addFirst("hello");
-      System.out.println(kevin);
-      kevin.addFirst("hi");
-      kevin.addLast("hey");
-      System.out.println(kevin);
-
-      System.out.println(kevin.peekFirst()); //hi
-      System.out.println(kevin.peekLast()); //hey
-
-      kevin.pollLast();
-      System.out.println(kevin);
-      kevin.pollFirst();
-      System.out.println(kevin);
-
+  public Iterator<T> iterator() {
+    return deque.iterator();
   }
 
+  public Iterator<T> descendingIterator() {
+    ALDeque<T> temp = new ALDeque();
+    for (T element : deque) {
+      temp.addFirst(element);
+    }
+    return temp.iterator();
+  }
+
+  public boolean contains(T o) {
+    for (T element : deque) {
+      if (element.equals(o)) {
+        return true;
+      }
+    }
+    return false;
+  } 
   /*
   public boolean offerFirst( T element ) {
 		
