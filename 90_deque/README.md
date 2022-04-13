@@ -5,3 +5,4 @@ Priority list
 * size
 * poll methods
 * offer methods
+* getFirst / getLast
