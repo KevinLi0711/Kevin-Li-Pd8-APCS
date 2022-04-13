@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.NoSuchElementException;
 
 public class ALDeque<T> implements Deque<T>{
   ArrayList<T> deque = new ArrayList<T>();
