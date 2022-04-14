@@ -4,7 +4,6 @@
  2022-04-12  
  time spent: 1 hour  
   
-Priority list  
 Top priority because these are essential basic functions
 * addFirst / addLast (done)
 * removeFirst / removeLast (done)
