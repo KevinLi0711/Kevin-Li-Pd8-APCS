@@ -1,3 +1,9 @@
+Team Three Kevins: Kevin Li, Hamim Seam, Kevin Xiao
+APCS
+HW90 -- Deque
+2022-04-12
+time spent: 1 hour
+
 Priority list
 * addFirst / addLast (done)
 * removeFirst / removeLast (done)
