@@ -4,7 +4,8 @@
  2022-04-12  
  time spent: 1 hour  
   
-We chose ArrayList because we saw LinkedList already implemented deque, so we thought we should use ArrayList for this    
+We chose ArrayList because we saw LinkedList already implemented deque, so we thought we should use ArrayList for this  
+
 Top priority because these are essential basic functions
 * addFirst / addLast (done)
 * removeFirst / removeLast (done)
