@@ -15,7 +15,7 @@ Second priority because these basically do what the above methods do but with a 
 * poll methods (done)
 * offer methods (skipped because we can't know ArrayList's capacity)
 * getFirst / getLast (done)
-  
+---
  Team Three Kevins: Kevin Li, Hamim Seam, Kevin Xiao  
  APCS  
  HW91 -- Deque  
