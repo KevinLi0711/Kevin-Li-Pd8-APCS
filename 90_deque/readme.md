@@ -1,4 +1,4 @@
- Team Three Kevins: Kevin Li, Hamim Seam, Kevin Xiao __
+ Team Three Kevins: Kevin Li, Hamim Seam, Kevin Xiao__
  APCS
  HW90 -- Deque
  2022-04-12
