@@ -9,6 +9,8 @@ time spent: 1 hour
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.lang.model.element.Element;
+
 public class ALDeque<T> implements Deque<T>{
   ArrayList<T> deque;
 
@@ -77,12 +79,7 @@ public class ALDeque<T> implements Deque<T>{
   }
 
   public String toString() {
-      String output = "";
-      for (int i = 0; i < deque.size(); i++) {
-          output += deque.get(i);
-          output += ", ";
-      }
-      return output;
+      return deque.toString();
   }
 
   public Iterator<T> iterator() {
@@ -97,14 +94,30 @@ public class ALDeque<T> implements Deque<T>{
     return temp.iterator();
   }
 
-  public boolean contains(T o) {
-    for (T element : deque) {
+  public boolean contains(Object o) {
+    for (Object element : deque) {
       if (element.equals(o)) {
         return true;
       }
     }
     return false;
   } 
+
+  public boolean removeFirstOccurence(Object o) {
+    return deque.remove(o);
+  }
+
+  public boolean removeLastOccurence(Object o) {
+    for (int i = deque.size() - 1; i > 0; i--) {
+        if (deque.get(i).equals(o)) {
+            deque.remove(i);
+            return true;
+        }
+    }
+    return false;
+  }
+
+
   /*
   public boolean offerFirst( T element ) {
 		

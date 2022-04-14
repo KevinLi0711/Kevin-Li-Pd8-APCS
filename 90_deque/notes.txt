@@ -25,5 +25,6 @@ time spent: 1 hour
 DISCO:
 
 For descendingIterator(), we can create a copy of the deque in reverse order and then return an iterator on the copy
+we can just use ArrayList's toString() instead of our slightly messier one
 
 QCC:

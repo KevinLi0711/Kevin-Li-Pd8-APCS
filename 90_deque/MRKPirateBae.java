@@ -15,12 +15,14 @@ public class MRKPirateBae {
 
       System.out.println(kevin.peekFirst()); //null
       System.out.println(kevin.peekLast()); //null
+      System.out.print("\n");
 
       kevin.addFirst("hello");
       System.out.println(kevin);
       kevin.addFirst("hi");
       kevin.addLast("hey");
       System.out.println(kevin);
+      System.out.print("\n");
 
       System.out.println(kevin.peekFirst()); //hi
       System.out.println(kevin.peekLast()); //hey
@@ -29,6 +31,7 @@ public class MRKPirateBae {
       System.out.println(kevin);
       kevin.pollFirst();
       System.out.println(kevin);
+      System.out.print("\n");
 
       ALDeque kevin2 = new ALDeque<String>();
 
@@ -42,6 +45,7 @@ public class MRKPirateBae {
         System.out.println(itr.next());
       }
 
+      System.out.print("\n");
       ALDeque kevin3 = new ALDeque<String>();
 
       kevin3.addFirst("a");
@@ -55,5 +59,22 @@ public class MRKPirateBae {
       }
 
       System.out.println(kevin3.contains("b"));
+      System.out.println("\n");
+
+      ALDeque kevin4 = new ALDeque<Integer>();
+
+      kevin4.addLast(3);
+      kevin4.addLast(2);
+      kevin4.addLast(3);
+      kevin4.addLast(4);
+      kevin4.addLast(3);
+      kevin4.addLast(5);
+
+      System.out.println(kevin4);
+      kevin4.removeFirstOccurence(3);
+      System.out.println(kevin4);
+      kevin4.removeLastOccurence(3);
+      System.out.println(kevin4);
+
       }
 }

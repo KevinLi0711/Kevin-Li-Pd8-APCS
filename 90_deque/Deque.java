@@ -29,9 +29,13 @@ public interface Deque<T> {
     public Iterator<T> iterator();
     public Iterator<T> descendingIterator();
 
-    public boolean contains(T o);
+    public boolean contains(Object o);
 
-    /* 
+    public boolean removeFirstOccurence(Object o);
+    public boolean removeLastOccurence(Object o);
+
+    /*
+    public boolean remove(Object o);
     public boolean offerFirst( T element );
     public boolean offerLast( T element );
     */

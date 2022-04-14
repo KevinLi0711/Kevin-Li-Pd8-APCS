@@ -28,4 +28,9 @@ Added first because they seemed doable and useful
 * descendingIterator (done)
 * contains (done)
 
+Added because they were the only ones remaining
+* remove (skipped because it has the same functionality as removeFirstOccurence)
+* removeFirstOccurence (done)
+* removeLastOccurence (done)
+
 
