@@ -1,3 +1,11 @@
+/*
+Team Three Kevins: Kevin Li, Hamim Seam, Kevin Xiao
+APCS
+HW91 -- Deque
+2022-04-13
+time spent: 1 hour
+*/
+
 import java.util.Iterator;
 
 public class MRKPirateBae {
