@@ -3,7 +3,7 @@ APCS
 HW90 -- Deque
 2022-04-12
 time spent: 1 hour
----
+
 DISCO:
 
 Linkedlist already implements deque according to oracle api, while ArrayList doesn't.
