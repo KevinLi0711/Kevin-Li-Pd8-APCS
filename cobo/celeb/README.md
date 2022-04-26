@@ -6,11 +6,11 @@ gatekeeping gaslighting girlbosses: Lauren Lee, Kevin Xiao, Kevin Li
 ~3. Code celebrity~  
 4. Identify game inst vars / attributes  
 5. Identify game methods  
-6. Code game
-  1. Storing names
-  2. Score
-  3. Randomly picking names
-  4. Way to guess
-  5. Passing
-  6. Start / end game  
+6. Code game  
+  Storing names  
+  Score  
+  Randomly picking names  
+  Way to guess  
+  Passing  
+  Start / end game  
 7. GUI
