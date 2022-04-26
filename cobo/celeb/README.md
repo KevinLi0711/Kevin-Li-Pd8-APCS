@@ -1,4 +1,5 @@
 gatekeeping gaslighting girlbosses: Lauren Lee, Kevin Xiao, Kevin Li
+---
 ### to-do list
 ~1. Identify celebrity inst vars / attributes~  
 ~2. Identify celebrity methods~  
