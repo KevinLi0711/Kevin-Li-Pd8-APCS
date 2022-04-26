@@ -14,4 +14,4 @@ gatekeeping gaslighting girlbosses: Lauren Lee, Kevin Xiao, Kevin Li
 * Passing  
 * Start / end game  
 
-       7. GUI
+                     7. GUI
