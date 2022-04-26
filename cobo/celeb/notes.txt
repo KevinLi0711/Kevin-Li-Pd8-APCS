@@ -1,0 +1,14 @@
+gaslighting gatekeeping girlbosses -- Lauren Lee, Kevin Xiao, Kevin Li
+APCS
+L09 -- Some Folks Call It a Charades
+2022-04-26
+time spent: hrs
+
+Activity 1 -- Introduction to Celebrity
+1. Game Class, Celebrity Class, Info Class
+2. number of guesses, points
+3. make a guess, check if correct, increment/decrement
+4. all
+5. Play calls upon guess on one celebrity until the correct answer is reached, play is continued to be called until the timer is up
+6. Real World Object: Kevin Xiao
+information: Asian, actor, good at math, good at every academic subject, coding hobby, math hobby, writing hobby, loud
