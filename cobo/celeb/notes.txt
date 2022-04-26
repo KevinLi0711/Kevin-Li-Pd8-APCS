@@ -12,3 +12,9 @@ Activity 1 -- Introduction to Celebrity
 5. Play calls upon guess on one celebrity until the correct answer is reached, play is continued to be called until the timer is up
 6. Real World Object: Kevin Xiao
 information: Asian, actor, good at math, good at every academic subject, coding hobby, math hobby, writing hobby, loud
+
+Activity 2 -- The Celebrity Class: A Simple Version
+1. Constructors create an instance of a class and may assign values to instance variables
+2. They don't have a return type in the heading
+3. A name and a clue
+4. Methods to get and set the name and clue of the celeb.
