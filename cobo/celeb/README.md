@@ -7,8 +7,4 @@ gatekeeping gaslighting girlbosses: Lauren Lee, Kevin Xiao, Kevin Li
 4. Identify game inst vars / attributes  
 5. Identify game methods  
 6. Code game  
-
-
-
-
 7. GUI
