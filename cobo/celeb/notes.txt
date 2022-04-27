@@ -82,7 +82,7 @@ but with different functionality. Also you can look for an @Override
 
 19. extends
 
-20. the subclass method
+20. the superclass method
 
 
 
