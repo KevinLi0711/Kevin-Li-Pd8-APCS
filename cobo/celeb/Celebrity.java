@@ -1,3 +1,4 @@
+import java.lang.*;
 /**
  * Celebrity base class for the Celebrity game.
  * @author cody.henrichsen
@@ -7,6 +8,8 @@ public class Celebrity
 {
 	private String _name;
 	private String _clue;
+	private String[] _celebs = {"Kevin Xiao","Tom Holland","Blake Lively","Lauren Lee","Kevin Li","Elon Musk","Topher Mykolyk"};
+	private String[] _clues = {"takes calc","is spiderman", "in Gossip Girl","cs tryhard num 1","kirby enthusiast","bought twitter","is our father"};
 	/**
 	 * The clue to determine the celebrity
 	 */
@@ -15,6 +18,11 @@ public class Celebrity
 	 * The answer or name of the celebrity.
 	 */
 
+	 public Celebrity(){
+		 int rand = (int)(Math.random()*7);
+		 _name = _celebs[rand];
+		 _clue = _clues[rand];
+	 }
 	/**
 	 * Creates a Celebrity instance with the supplied answer and clue
 	 * @param answer
@@ -79,6 +87,10 @@ public class Celebrity
 		LL.setAnswer("Lau-en");
 		System.out.println(LL.getClue());
 		System.out.println(LL.getAnswer());
+
+		Celebrity KXiao = new Celebrity();
+		System.out.println(KXiao.getClue());
+		System.out.println(KXiao.getAnswer());
 	}
 
 }

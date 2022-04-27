@@ -2,7 +2,7 @@ gaslighting gatekeeping girlbosses -- Lauren Lee, Kevin Xiao, Kevin Li
 APCS
 L09 -- Some Folks Call It a Charades
 2022-04-26
-time spent: hrs
+time spent: 2 hrs
 
 DISCO
 Attempting to execute a subclass file with no main method will instead execute the main method of the superclass (if applicable)
@@ -50,7 +50,7 @@ Actor
     - What school they went to          string
     - gets and sets
     - toString
-Entrepreneur
+Entrepreneur (we picked this one)
     - Money                             double
     - Number of companies               int
     - Number of minions                 int
