@@ -5,7 +5,9 @@ L09 -- Some Folks Call It a Charades
 time spent: 2 hrs
 
 DISCO
-Attempting to execute a subclass file with no main method will instead execute the main method of the superclass (if applicable)
+1. Attempting to execute a subclass file with no main method will instead execute the main method of the superclass (if applicable)
+2. setContentPanel is good for changing screens
+3. The play method doesn't reset the size of the array, so the reset button doesn't work as given
 
 QCC
 1. What the heck is low coupling?

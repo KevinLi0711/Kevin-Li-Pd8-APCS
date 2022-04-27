@@ -119,9 +119,12 @@ public class StartPanel extends JPanel
   public StartPanel(CelebrityGame controller)
   {
     super();
-    Robert = new JRadioButton("Your Celebrity Type");
-    KXiao = "Your celebrity type clue format hint";
-    this.controller = controller;
+    /*
+   *            The text for the clue. Validation depends on the selected
+   *            Celebrity type, but at least 10 characters are required.
+   * @return Whether the appropriate text amounts are filled and the correct
+   *         type of clue is given.
+   */
     this.panelLayout = new SpringLayout();
     this.typeGroup = new ButtonGroup();
     this.celebrityRadio = new JRadioButton("Celebrity");
@@ -187,6 +190,8 @@ public class StartPanel extends JPanel
   {
     this.add(Robert);
     typeGroup.add(Robert);
+    this.add(celebrityRadio);
+    typeGroup.add(celebrityRadio);
     // Adds the RadioButtons to the group so only one can be selected.
   }
 

@@ -1,12 +1,16 @@
-gatekeeping gaslighting girlbosses: Lauren Lee, Kevin Xiao, Kevin Li
+gaslighting gatekeeping girlbosses -- Lauren Lee, Kevin Xiao, Kevin Li
+APCS
+L09 -- Some Folks Call It a Charades
+2022-04-26
+time spent: 5 hrs
 ---
 ### to-do list
 1. ~Identify celebrity inst vars / attributes~  
 2. ~Identify celebrity methods~  
 3. ~Code celebrity~  
 4. ~Identify game inst vars / attributes~
-5. Identify game methods  
-6. Code game  
+5. ~Identify game methods~
+6. ~Code game~  
 * ~Storing names~
 * Score  
 * ~Randomly picking names~ 
