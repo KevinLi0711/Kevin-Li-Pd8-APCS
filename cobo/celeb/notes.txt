@@ -4,9 +4,11 @@ L09 -- Some Folks Call It a Charades
 2022-04-26
 time spent: hrs
 
+DISCO
+Attempting to execute a subclass file with no main method will instead execute the main method of the superclass (if applicable)
+
 QCC
 1. What the heck is low coupling?
-
 
 Activity 1 -- Introduction to Celebrity
 1. Game Class, Celebrity Class, Info Class
@@ -47,26 +49,40 @@ Actor
     - Overall rating                    double
     - What school they went to          string
     - gets and sets
+    - toString
 Entrepreneur
     - Money                             double
     - Number of companies               int
     - Number of minions                 int
     - gets and sets
+    - toString
 Singers
     - Vocal range                       string
     - Number of albums                  int
     - Sales                             double
     - gets and sets
+    - toString
 APCS Teachers
     - Students                          string[]
     - Specialty                         string
     - Ratemyteacher rating              double
     - gets and sets
+    - toString
 Activists       
     - Followers on social media         int
     - Number of campaigns               int
     - Motive / topic of activism        string
     - gets and sets
+    - toString
+
+17. If there is another method with the same name and params in a superclass,
+but with different functionality. Also you can look for an @Override
+
+18. using super to construct an instance of the superclass using subclass variables
+
+19. extends
+
+20. the subclass method
 
 
 
