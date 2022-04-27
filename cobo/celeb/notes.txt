@@ -39,3 +39,33 @@ because there's no accessor method
 12. CelebrityGame
 13. It knows what instance variables Celebrity has, but it can't access them
 
+Activity 4 -- 
+1. 
+Actor 
+    - Number of movies acted in         int
+    - Overall rating                    double
+    - What school they went to          string
+    - gets and sets
+Entrepreneur
+    - Money                             double
+    - Number of companies               int
+    - Number of minions                 int
+    - gets and sets
+Singers
+    - Vocal range                       string
+    - Number of albums                  int
+    - Sales                             double
+    - gets and sets
+APCS Teachers
+    - Students                          string[]
+    - Specialty                         string
+    - Ratemyteacher rating              double
+    - gets and sets
+Activists       
+    - Followers on social media         int
+    - Number of campaigns               int
+    - Motive / topic of activism        string
+    - gets and sets
+
+
+
