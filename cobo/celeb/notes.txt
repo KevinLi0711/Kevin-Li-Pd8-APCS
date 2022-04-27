@@ -4,6 +4,9 @@ L09 -- Some Folks Call It a Charades
 2022-04-26
 time spent: hrs
 
+QCC
+1. What the heck is low coupling?
+
 Activity 1 -- Introduction to Celebrity
 1. Game Class, Celebrity Class, Info Class
 2. number of guesses, points
@@ -18,3 +21,21 @@ Activity 2 -- The Celebrity Class: A Simple Version
 2. They don't have a return type in the heading
 3. A name and a clue
 4. Methods to get and set the name and clue of the celeb.
+7. We can create a constructor that takes no inputs and randomly selects a celebrity from an array
+    public Celebrity(){
+         int rand = (int)(Math.random()*7);
+         _name = _celebs[rand];
+         _clue = _clues[rand];
+    }
+
+Activity 3 -- Putting It All Together
+1. JComponent:
+Can change borders, can make custom properties, supports drag and drop, can change colors, can change opacity, 
+can change layout, can paint borders, can manage keybinds,
+can detect mouse movement, mouse clicks, key inputs, changes to components
+2. public ArrayList<Celebrity> celebGameList;
+because there's no accessor method
+3. private Celebrity gameCelebrity;
+12. CelebrityGame
+13. It knows what instance variables Celebrity has, but it can't access them
+
