@@ -18,3 +18,4 @@ gatekeeping gaslighting girlbosses: Lauren Lee, Kevin Xiao, Kevin Li
 ### image notes
 ![unknown](https://user-images.githubusercontent.com/58864927/165413834-cab70e29-5125-40f9-a637-86ea844972f2.png)
 ![unknown2](https://user-images.githubusercontent.com/58864927/165413839-2b2b3c5b-c86e-4e32-95d4-22be2371ae1a.png)
+![unknown3](https://user-images.githubusercontent.com/58864927/165416805-cc070596-3e0e-4697-9a5f-436f7a987a52.png)
