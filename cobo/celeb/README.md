@@ -9,10 +9,10 @@ gatekeeping gaslighting girlbosses: Lauren Lee, Kevin Xiao, Kevin Li
 6. Code game  
 * ~Storing names~
 * Score  
-* ~Randomly picking names ~ 
+* ~Randomly picking names~ 
 * ~Way to guess~  
 * Passing  
-* Start / end game  
+* ~Start / end game~  
 
 7. GUI
 
