@@ -1,3 +1,8 @@
+// gaslighting gatekeeping girlbosses -- Lauren Lee, Kevin Xiao, Kevin Li
+// APCS
+// L09 -- Some Folks Call It a Charades
+// 2022-04-26
+// time spent: 5 hrs
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -119,12 +124,9 @@ public class StartPanel extends JPanel
   public StartPanel(CelebrityGame controller)
   {
     super();
-    /*
-   *            The text for the clue. Validation depends on the selected
-   *            Celebrity type, but at least 10 characters are required.
-   * @return Whether the appropriate text amounts are filled and the correct
-   *         type of clue is given.
-   */
+    Robert = new JRadioButton("Entrepreneur");
+    KXiao = "Your celebrity type clue format hint";
+    this.controller = controller;
     this.panelLayout = new SpringLayout();
     this.typeGroup = new ButtonGroup();
     this.celebrityRadio = new JRadioButton("Celebrity");
@@ -188,10 +190,29 @@ public class StartPanel extends JPanel
    */
   private void setupPanel()
   {
+    //this.add(panelLayout);
+  //  typeGroup.add(panelLayout);
     this.add(Robert);
     typeGroup.add(Robert);
     this.add(celebrityRadio);
     typeGroup.add(celebrityRadio);
+    this.add(literatureRadio);
+    typeGroup.add(literatureRadio);
+    this.add(clueLabel);
+  //  typeGroup.add(clueLabel);
+    this.add(celebrityCountLabel);
+  //  typeGroup.add(celebrityCountLabel);
+    this.add(answerField);
+    //typeGroup.add(answerField);
+    this.add(clueField);
+    this.add(addCelebrityButton);
+    typeGroup.add(addCelebrityButton);
+    this.add(startButton);
+    typeGroup.add(startButton);
+    //this.add(celebrityClue);
+    //this.add(literatureClue);
+    //this.add(entrepreneurClue);
+    //typeGroup.add(clueField);
     // Adds the RadioButtons to the group so only one can be selected.
   }
 

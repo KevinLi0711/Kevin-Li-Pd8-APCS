@@ -35,7 +35,7 @@ Activity 2 -- The Celebrity Class: A Simple Version
 
 Activity 3 -- Putting It All Together
 1. JComponent:
-Can change borders, can make custom properties, supports drag and drop, can change colors, can change opacity, 
+Can change borders, can make custom properties, supports drag and drop, can change colors, can change opacity,
 can change layout, can paint borders, can manage keybinds,
 can detect mouse movement, mouse clicks, key inputs, changes to components
 2. public ArrayList<Celebrity> celebGameList;
@@ -44,9 +44,9 @@ because there's no accessor method
 12. CelebrityGame
 13. It knows what instance variables Celebrity has, but it can't access them
 
-Activity 4 -- 
-1. 
-Actor 
+Activity 4 --
+1.
+Actor
     - Number of movies acted in         int
     - Overall rating                    double
     - What school they went to          string
@@ -70,7 +70,7 @@ APCS Teachers
     - Ratemyteacher rating              double
     - gets and sets
     - toString
-Activists       
+Activists
     - Followers on social media         int
     - Number of campaigns               int
     - Motive / topic of activism        string
@@ -92,7 +92,7 @@ Activity 5
 2. We thought about what attributes and actions an APCS student would have. then we considered how mykolyk students are different
 
 3. Mr K class
-4. 
+4.
 Class: Mykolyk
 Attributes:
   - double _hrsSpent
@@ -129,6 +129,4 @@ Methods:
       return (int) (Math.random()*65);
     }
   }
-
-
-
+it makes takingTest different in a mykolyk class compared to a generic apcs class

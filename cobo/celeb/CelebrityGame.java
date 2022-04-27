@@ -1,3 +1,9 @@
+// gaslighting gatekeeping girlbosses -- Lauren Lee, Kevin Xiao, Kevin Li
+// APCS
+// L09 -- Some Folks Call It a Charades
+// 2022-04-26
+// time spent: 5 hrs
+
 import java.util.ArrayList;
 
 /**
@@ -32,7 +38,7 @@ public class CelebrityGame
 	{
 		celebGameList = new ArrayList<Celebrity>();
 		gameWindow = new CelebrityFrame(this);
-		gameWindow.setVisible(true);
+		prepareGame();
 	}
 
 	/**
@@ -56,6 +62,7 @@ public class CelebrityGame
 	{
 		guess = guess.trim();
 		if(guess.equalsIgnoreCase(this.gameCelebrity.getAnswer())){
+			celebGameList.remove(gameCelebrity);
 			return true;
 		}
 		return false;
@@ -97,6 +104,10 @@ public class CelebrityGame
 			gameWindow.replaceScreen("GAME");
 		}
 	}
+
+	// public void replay(){
+	// 	gameWindow.replaceScreen("START");
+	// }
 
 	/**
 	 * Adds a Celebrity of specified type to the game list
@@ -156,9 +167,9 @@ public class CelebrityGame
 				} else{
 					validClue = false;
 				}
-			} else if(type.equalsIgnoreCase("Entrepreneur")){
+			} else if(type.equalsIgnoreCase("entrepreneur")){
 				String[] temp = clue.split(",");
-				if(temp.length>1){
+				if(temp.length>=1){
 					validClue=true;
 				} else{
 					validClue = false;

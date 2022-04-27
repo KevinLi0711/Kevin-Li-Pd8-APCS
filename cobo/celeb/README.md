@@ -13,7 +13,7 @@ time spent: 5 hrs
 6. ~Code game~  
 * ~Storing names~
 * Score  
-* ~Randomly picking names~ 
+* ~Randomly picking names~
 * ~Way to guess~  
 * Passing  
 * ~Start / end game~  

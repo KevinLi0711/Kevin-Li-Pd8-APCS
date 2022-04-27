@@ -1,3 +1,9 @@
+// gaslighting gatekeeping girlbosses -- Lauren Lee, Kevin Xiao, Kevin Li
+// APCS
+// L09 -- Some Folks Call It a Charades
+// 2022-04-26
+// time spent: 5 hrs
+
 /**
  * Starts the Celebrity Game application
  * @author cody.henrichsen
