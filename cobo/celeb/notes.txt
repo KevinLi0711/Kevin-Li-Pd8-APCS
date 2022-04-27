@@ -2,7 +2,7 @@ gaslighting gatekeeping girlbosses -- Lauren Lee, Kevin Xiao, Kevin Li
 APCS
 L09 -- Some Folks Call It a Charades
 2022-04-26
-time spent: 2 hrs
+time spent: 5 hrs
 
 DISCO
 1. Attempting to execute a subclass file with no main method will instead execute the main method of the superclass (if applicable)
@@ -85,6 +85,50 @@ but with different functionality. Also you can look for an @Override
 19. extends
 
 20. the superclass method
+
+Activity 5
+
+1. Because we love APCS :)
+2. We thought about what attributes and actions an APCS student would have. then we considered how mykolyk students are different
+
+3. Mr K class
+4. 
+Class: Mykolyk
+Attributes:
+  - double _hrsSpent
+  - int _daysSinceGrassTouching
+  - boolean _holidayMaths
+  - String _SOTW
+Methods:
+    + mykolyk(boolean, int, double, int, boolean, String)
+    + int takeTest(boolean)
+
+Class: apcs
+Attributes:
+  - boolean _grade;
+  - int _period;
+  - String _teacher;
+Methods:
++ apcs(boolean, int, String)
++ boolean getGrade()
++ int getPeriod()
++ String getTeacher()
++ void setGrade(boolean)
++ boolean switchePeriod(int)
++ boolean switchTeacher(String)
++ int takeTest(boolean)
++ boolean hasSenioritis()
++ boolean isLate()
+5.   @Override
+  public int takeTest(boolean study){
+    if (_holidayMaths == true && _hrsSpent <= 0.5 && _daysSinceGrassTouching == 0 && _SOTW.equals("Ride or Die") && study){
+      return 100;
+    } else if(_holidayMaths == true && _hrsSpent <= 0.5 && study){
+      return (int) (Math.random()*34 + 65);
+    } else {
+      return (int) (Math.random()*65);
+    }
+  }
 
 
 
