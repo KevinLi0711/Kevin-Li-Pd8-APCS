@@ -10,7 +10,7 @@ DISCO
 * The post-order arrangement of the tree is KNOWLIDGE
 * First node of pre-order is the last node of post-order because the root is processed first in pre-order and last in post-order
 * the reconstructed tree looks like:
-  		E
+      E
        \
         G
        / 
