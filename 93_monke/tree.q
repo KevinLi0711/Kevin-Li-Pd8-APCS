@@ -17,7 +17,7 @@ DISCO
       D 
      / \
     K   I
-    	 / \
+       / \
       N   L
          / \
         O   W
@@ -58,6 +58,7 @@ In which direction does a tree grow?
 Provide as many alternate definitions as you can for "tree," using graph terminology ("closed/open tours", "paths", "cycles", etc). Maximize clarity, succinctness.
 	- Abstract Data Type
     - Acyclic graph
+    - 
 
 Why is a balanced tree allowed a difference of 1 in height between right and left subtrees?
 	- To distinguish the tree from being a complete or balanced tree
