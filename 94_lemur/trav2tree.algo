@@ -1,0 +1,110 @@
+Gatekeeping Gaslighting Girlbosses - Lauren Lee, Kevin Xiao, Kevin Li
+APCS pd8
+HW94 -- reverse engineering
+2022-05-06f
+time spent: 1 hrs
+
+
+DISCO
+------------------------------------------------
+* Gabriel's piazza post
+	- For an in-order traversal:
+  	- The left of the root contains all letters in the left subtree
+    - The right of the root contains all letters in the right subtree
+  	- A followup to that post contains our discovery of recursive patterns in the traversal sequences
+================================================
+
+
+QCC
+------------------------------------------------
+* 
+================================================
+
+
+HOW KEEN ARE YOUR POWERS OF OBSERVATION?
+------------------------------------------------
+Q: For a given binary tree, how many unique pre-order traversals are there?
+A: 1
+
+Q: For a given binary tree, how many unique in-order traversals are there?
+A: 1
+
+Q: For a given binary tree, how many unique post-order traversals are there?
+A: 1
+
+Q: For a given traversal, how many unique trees could have produced it?
+A: (2n)!/ ((n+1)! *n!)
+
+Q: Given a pre-order traversal, what can you infer about its tree?
+A: Its first node is the root
+
+Q: Given a post-order traversal, what can you infer about its tree?
+A: Its last node is the root
+
+Q: What does "1-to-1" mean?
+A: There is a unique tree for the given traversals and there is only ONE possible traversal or set of traversals that produce that tree.
+
+Q: What does "onto" mean?
+A: It means many to one?
+
+================================================
+
+
+ALGO for pre and in
+------------------------------------------------
+givens: All letters are unique
+
+procedure:
+
+1.Take the first letter of the pre-order traversal. 
+2.Remove letter and place it as the root node of the binary tree
+3.Find the letter within the in-order traversal.
+4.Parse/split the in-order traversal along the letter, separating into two distinct regions of the traversal.
+Look at the right side of the distinct region of the in-order traversal, and then remove all the letters in pre-order 
+that correspond to the letters in that right region. Store these letters in another traversal and will belong to the right subtree of the root node.
+5.Repeat step 1, and step 2 but instead of placing as the root node, it is simply the next node to the left of the root node, and step 3 and 4.
+6.Once your distinct region is down to only 1 letter or less, you know that it is "sorted" and if that letter was on the left side of the removed node,
+place it as the left child node of the selected node, if it was on the right side, place it on the right.
+7. Look at all the "stored" pre-order traversals, and repeat the process.
+================================================
+
+ALGO for in and post
+------------------------------------------------
+givens: All letters are unique
+
+procedure:
+
+post: UGOASLD
+in: UOGDALS
+
+Place the last letter of the post-order traversal as the root. Then remove it
+	UGOASL 
+Search for the index of that letter in the in-order traversal. Then remove it
+	UOG ALS
+Store the 2 sections of the in-order traversal as separate strings
+	inFirstHalf = UOG 
+  inSecondHalf = ALS
+However many letters are in b(the right half), separate an equal number of letters from the end of the post-order traversal
+	UGO ASL
+Store the 2 sections 
+	postFirstHalf = UGO
+  postSecondHalf = ASL
+Repeat the above steps for a & c, b & d using the following pairs using recursion
+	post: postFirstHalf (UGO)					post: postSecondHalf (ASL)
+  in: inFirstHalf			(UOG)					in: postSecondHalf	 (ALS)
+  
+	Base cases: 
+  	- if post and in are equal, place the last letter as the root. Remove it from both strings and then branch left
+    - if the strings are empty, return the tree
+  
+ALGO for pre and post
+------------------------------------------------
+It's not possible because of ambiguity in which way the tree branches
+	A					 A
+  	 \					  \
+      B			and 	   B   both have pre-order: ABC and post-order: CBA
+	   \				  /
+        C				 C
+We did come up with an algo that got really close, but it couldn't determine how to place the last letter
+================================================
+(replicate the algo section above as many times as necessary for distinct algos)
