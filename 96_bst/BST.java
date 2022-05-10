@@ -150,7 +150,20 @@ public class BST
      *****************************************************/
     TreeNode search( int target )
     {
-    	/*** YOUR IMPLEMENTATION HERE ***/
+        TreeNode currNode = _root;
+    	while (currNode != null) {
+
+            if (target == currNode.getValue()) {
+                break;
+            }
+
+            if (target < currNode.getValue()) {
+                currNode = currNode.getLeft();
+            } else {
+                currNode = currNode.getRight();
+            }
+        }
+        return currNode;
     }
 
 
@@ -161,7 +174,7 @@ public class BST
      *****************************************************/
     public int height()
     {
-    	/*** YOUR IMPLEMENTATION HERE ***/
+    	return -1;
     }
 
 
@@ -171,7 +184,7 @@ public class BST
      *****************************************************/
     public int numLeaves()
     {
-    	/*** YOUR IMPLEMENTATION HERE ***/
+    	return -1;
     }
 
 
@@ -202,6 +215,18 @@ public class BST
       arbol.postOrderTrav();
 
       System.out.println( "\n-----------------------------");
+
+      TreeNode six = arbol.search(6);
+      System.out.println(six.getValue());
+      System.out.println(six.getLeft());
+      
+      TreeNode four = arbol.search(4);
+      System.out.println(four.getValue());
+      System.out.println(four.getLeft().getValue());
+      System.out.println(four.getRight().getValue());
+
+      TreeNode eight = arbol.search(8);
+      System.out.println(eight);
       /*~~~~~~~~~~~~move~me~down~~~~~~~~~~~~~~~~~~~~~~
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }
