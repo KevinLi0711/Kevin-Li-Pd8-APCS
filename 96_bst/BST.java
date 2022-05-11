@@ -164,19 +164,27 @@ public class BST
    *****************************************************/
   public int height()
   {
-    BST curr = new BST();
-    curr._root = _root;
-    while(curr._root.getLeft() != null || curr._root.getRight() != null){
-      if (curr._root.getLeft() != null){
-        curr._root = curr._root.getLeft();
-        return curr.height()+1;
-      } else {
-        curr._root = curr._root.getRight();
-        return curr.height()+1;
-      }
-    }
-    return 0;
+    BST left = new BST();
+    BST right = new BST();
+    left._root = _root;
+    right._root = _root;
+    int leftHeight = 0;
+    int rightHeight = 0;
 
+    if(_root.getLeft() != null){
+      left._root = _root.getLeft();
+      leftHeight += 1;
+      leftHeight += left.height();
+    }
+    if(_root.getRight() != null){
+      right._root = _root.getRight();
+      rightHeight += 1;
+      rightHeight += right.height();
+    }
+    if(_root.getRight() == null && _root.getLeft() == null){
+      return 0;
+    }
+    return Math.max(leftHeight, rightHeight);
   }
 
 
@@ -191,15 +199,16 @@ public class BST
     left._root = _root;
     right._root = _root;
     int leaves = 0;
-    if(left._root.getLeft() != null){
-      left._root = left._root.getLeft();
+
+    if(_root.getLeft() != null){
+      left._root = _root.getLeft();
       leaves = leaves + left.numLeaves();
     }
-    if(right._root.getRight() != null){
-      right._root = right._root.getRight();
+    if(_root.getRight() != null){
+      right._root = _root.getRight();
       leaves = leaves + right.numLeaves();
     }
-    if(_root.getRight() == null && left._root.getLeft() == null){
+    if(_root.getRight() == null && _root.getLeft() == null){
       return 1;
     }
     return leaves;

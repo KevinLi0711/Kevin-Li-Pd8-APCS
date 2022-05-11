@@ -1,0 +1,11 @@
+Gatekeeping Gaslighting Girlbosses: Kevin Xiao, Lauren Lee, Kevin Li
+APCS
+HW96: BSTs is the Perfect Place for Shade
+2022-05-10
+time spent: .9 hours
+DISCO
+    - we can write recursive functions without parameters!
+QCC
+    - our understanding of height is that a one node tree is height 0 and a tree with two levels is of height 1 but the comment for the height() method says a one node tree is of height 0. Which is correct?
+    - Is there a way to initialize a BST variable automatically takes the instance of BST in the class
+      ie BST curr = this.BST(). Right now we have to create a new BST and set its root to our root which is an extra step
