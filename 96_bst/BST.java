@@ -1,4 +1,11 @@
-/**
+/*
+Gatekeeping Gaslighting Girlbosses: Kevin Xiao, Lauren Lee, Kevin Li
+APCS
+HW96: BSTs is the Perfect Place for Shade
+2022-05-10
+time spent: .9 hours
+*/
+/*
  * class BST
  * v1:partial
  * SKELETON
@@ -11,20 +18,7 @@
  *  and any value in its right subtree must be greater.)
  *
  * This BST implementation only holds ints (its nodes have int cargo)
- * 
-Gatekeeping Gaslighting Girlbosses: Kevin Xiao, Lauren Lee, Kevin Li
-APCS
-HW95 -- Algorithm as data structure
-2022-06-09
-time spent: .5 hours
-
-DISCO
-    - There's only one unique tree for BST given a set of values 
-    - 
-QCC
-    - How can we make it print to look like an actual tree
-    - When objects are declared, they are declared as null, so why do we need to initialize the _root to null? (it works without initializing)
-    - If a node is equal to another node, do you put it on the left or right, and which one should be the child or the parent. Does it matter?
+ *
  */
 
 
@@ -73,7 +67,7 @@ public class BST
       	insert(stRoot.getRight(), newNode);
       }
     }
-    
+
   }//end insert()
 
 
@@ -96,7 +90,7 @@ public class BST
   	if (currNode.getLeft() != null) {
     	preOrderTrav(currNode.getLeft());
     }
-    
+
     if (currNode.getRight() != null) {
     	preOrderTrav(currNode.getRight());
 
@@ -111,7 +105,7 @@ public class BST
   }
   public void inOrderTrav( TreeNode currNode )
   {
-    
+
   	if (currNode.getLeft() != null) {
     	inOrderTrav(currNode.getLeft());
     }
@@ -141,51 +135,76 @@ public class BST
 
   //~~~~~~~~~~~~~^~~TRAVERSALS~~^~~~~~~~~~~~~~~~~~~~~~
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-    /*****************************************************
-     * TreeNode search(int)
-     * returns pointer to node containing target,
-     * or null if target not found
-     *****************************************************/
-    TreeNode search( int target )
-    {
-        TreeNode currNode = _root;
-    	while (currNode != null) {
-
-            if (target == currNode.getValue()) {
-                break;
-            }
-
-            if (target < currNode.getValue()) {
-                currNode = currNode.getLeft();
-            } else {
-                currNode = currNode.getRight();
-            }
-        }
-        return currNode;
+  /*****************************************************
+   * TreeNode search(int)
+   * returns pointer to node containing target,
+   * or null if target not found
+   *****************************************************/
+  TreeNode search( int target )
+  {
+    TreeNode currNode = _root;
+    while (currNode.getValue() != target){
+      if(target < currNode.getValue() && currNode.getLeft() != null){
+        currNode = currNode.getLeft();
+      }
+      else if (target > currNode.getValue() && currNode.getRight() != null) {
+        currNode = currNode.getRight();
+      } else{
+        return null;
+      }
     }
+    return currNode;
+  }
 
 
-    /*****************************************************
-     * int height()
-     * returns height of this tree (length of longest leaf-to-root path)
-     * eg: a 1-node tree has height 1
-     *****************************************************/
-    public int height()
-    {
-    	return -1;
+  /*****************************************************
+   * int height()
+   * returns height of this tree (length of longest leaf-to-root path)
+   * eg: a 1-node tree has height 1
+   *****************************************************/
+  public int height()
+  {
+    BST curr = new BST();
+    curr._root = _root;
+    while(curr._root.getLeft() != null || curr._root.getRight() != null){
+      if (curr._root.getLeft() != null){
+        curr._root = curr._root.getLeft();
+        return curr.height()+1;
+      } else {
+        curr._root = curr._root.getRight();
+        return curr.height()+1;
+      }
     }
+    return 0;
+
+  }
 
 
-    /*****************************************************
-     * int numLeaves()
-     * returns number of leaves in tree
-     *****************************************************/
-    public int numLeaves()
-    {
-    	return -1;
+  /*****************************************************
+   * int numLeaves()
+   * returns number of leaves in tree
+   *****************************************************/
+  public int numLeaves()
+  {
+    BST left = new BST();
+    BST right = new BST();
+    left._root = _root;
+    right._root = _root;
+    int leaves = 0;
+    if(left._root.getLeft() != null){
+      left._root = left._root.getLeft();
+      leaves = leaves + left.numLeaves();
     }
+    if(right._root.getRight() != null){
+      right._root = right._root.getRight();
+      leaves = leaves + right.numLeaves();
+    }
+    if(_root.getRight() == null && left._root.getLeft() == null){
+      return 1;
+    }
+    return leaves;
+  }
+
 
 
   //main method for testing
@@ -216,17 +235,35 @@ public class BST
 
       System.out.println( "\n-----------------------------");
 
-      TreeNode six = arbol.search(6);
-      System.out.println(six.getValue());
-      System.out.println(six.getLeft());
-      
-      TreeNode four = arbol.search(4);
-      System.out.println(four.getValue());
-      System.out.println(four.getLeft().getValue());
-      System.out.println(four.getRight().getValue());
+      System.out.println("testing height....");
+      System.out.println(arbol.height() + " ... should be 2");
 
-      TreeNode eight = arbol.search(8);
-      System.out.println(eight);
+      System.out.println( "\n-----------------------------");
+      System.out.println("testing search....");
+      System.out.println(arbol.search(4).getValue());
+      System.out.println(arbol.search(2).getValue());
+      System.out.println(arbol.search(5).getValue());
+      System.out.println(arbol.search(6).getValue());
+      System.out.println(arbol.search(1).getValue());
+      System.out.println(arbol.search(3).getValue());
+      System.out.println(arbol.search(9));
+
+      System.out.println( "\n-----------------------------");
+      System.out.println("testing numLeaves....");
+      System.out.println(arbol.numLeaves() + "... should be 3");
+
+      BST a = new BST();
+
+      a.insert( 4 );
+      a.insert( 2 );
+      a.insert( 5 );
+      System.out.println(a.numLeaves() + "... should be 2");
+
+      BST b = new BST();
+      b.insert( 6 );
+      b.insert( 3 );
+      b.insert( 1 );
+      System.out.println(b.numLeaves() + " ...should be 1");
       /*~~~~~~~~~~~~move~me~down~~~~~~~~~~~~~~~~~~~~~~
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }

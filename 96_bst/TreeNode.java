@@ -1,23 +1,16 @@
-/**
+/*
+Gatekeeping Gaslighting Girlbosses: Kevin Xiao, Lauren Lee, Kevin Li
+APCS
+HW96: BSTs is the Perfect Place for Shade
+2022-05-10
+time spent: .9 hours
+*/
+/*
  * class TreeNode
  * SKELETON
  * Implements a node for use in a binary tree.
  * Only holds int cargo.
-Gatekeeping Gaslighting Girlbosses: Kevin Xiao, Lauren Lee, Kevin Li
-APCS
-HW95 -- Algorithm as data structure
-2022-06-09
-time spent: .5 hours
-
-DISCO
-    - There's only one unique tree for BST given a set of values 
-    - 
-QCC
-    - How can we make it print to look like an actual tree
-    - When objects are declared, they are declared as null, so why do we need to initialize the _root to null? (it works without initializing)
-    - If a node is equal to another node, do you put it on the left or right, and which one should be the child or the parent. Does it matter?
- */
-
+*/
 public class TreeNode
 {
 
@@ -97,7 +90,7 @@ public class TreeNode
   /**
    * Sets the value of this tree node.
    */
-  void setValue( int theNewValue ) 
+  void setValue( int theNewValue )
   {
     _cargo = theNewValue;
   }
