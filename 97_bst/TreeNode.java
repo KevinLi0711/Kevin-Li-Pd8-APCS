@@ -1,9 +1,14 @@
 /*
 Gatekeeping Gaslighting Girlbosses: Kevin Xiao, Lauren Lee, Kevin Li
 APCS
-HW96: BSTs is the Perfect Place for Shade
-2022-05-10
-time spent: .9 hours
+HW97: Prune Your Tree
+2022-05-11
+time spent: 1 hours
+DISCO
+    - All the removal cases tie back to removing a leaf
+QCC
+    - We needed a special case to account for removing a root that has 1 child. It should be possible to do it without a special case but we've spent a lot of time already
+
 */
 /*
  * class TreeNode
