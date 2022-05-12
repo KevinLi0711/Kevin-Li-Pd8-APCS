@@ -292,12 +292,14 @@ public class BST
         //And if the target has one child to the left
         if (ant.getLeft() != null) {
             //Connect that child to the left of the target's parent
-            piggyback.setLeft(ant.getLeft());
+            TreeNode temp = remove(ant.getLeft().getValue());
+            ant.setValue(temp.getValue());
         }
         //And if the target has one child to the right
         if (ant.getRight() != null) {
             //Connect that child to the left of the target's parent
-            piggyback.setLeft(ant.getRight());
+            TreeNode temp = remove(ant.getRight().getValue());
+            ant.setValue(temp.getValue());
         }
 
         return removedNode;
@@ -307,12 +309,14 @@ public class BST
         //And if the target has one child to the left
         if (ant.getLeft() != null) {
             //Connect that child to the right of the target's parent
-            piggyback.setRight(ant.getLeft());
+            TreeNode temp = remove(ant.getLeft().getValue());
+            ant.setValue(temp.getValue());
         }
         //And if the target has one child to the right
         if (ant.getRight() != null) {
             //Connect that child to the right of the target's parent
-            piggyback.setRight(ant.getRight());
+            TreeNode temp = remove(ant.getRight().getValue());
+            ant.setValue(temp.getValue());
         }
 
         return removedNode;
