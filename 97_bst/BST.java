@@ -1,8 +1,8 @@
 /*
 Gatekeeping Gaslighting Girlbosses: Kevin Xiao, Lauren Lee, Kevin Li
 APCS
-HW96: BSTs is the Perfect Place for Shade
-2022-05-10
+HW97: Prune Your Tree
+2022-05-11
 time spent: .9 hours
 */
 /*
@@ -238,6 +238,12 @@ public class BST
     return foo;
   }
 
+  //Kidnapper steals the value of the kid, and the kid is removed from the tree
+  public void kidnap(TreeNode kidnapper, TreeNode kid) {
+    TreeNode temp = remove(kid.getValue());
+    kidnapper.setValue(temp.getValue());
+  }
+
   public TreeNode remove(int target) {
     TreeNode ant = _root;
     TreeNode piggyback = _root;
@@ -265,9 +271,7 @@ public class BST
         }
 
         //Kidnap that node and store its value
-        TreeNode temp = remove(piggyback.getValue());
-        //Change the value of the target node to the value of the kidnapped node
-        ant.setValue(temp.getValue());
+        kidnap(ant, piggyback);
         return removedNode;
     }
 
@@ -289,34 +293,30 @@ public class BST
 
     //If the target is to the left of its parent
     if (ant.getValue() < piggyback.getValue()) {
-        //And if the target has one child to the left
+        //If the target has one child to the left
         if (ant.getLeft() != null) {
             //Connect that child to the left of the target's parent
-            TreeNode temp = remove(ant.getLeft().getValue());
-            ant.setValue(temp.getValue());
+            kidnap(ant, ant.getLeft());
         }
-        //And if the target has one child to the right
+        //If the target has one child to the right
         if (ant.getRight() != null) {
             //Connect that child to the left of the target's parent
-            TreeNode temp = remove(ant.getRight().getValue());
-            ant.setValue(temp.getValue());
+            kidnap(ant, ant.getRight());
         }
 
         return removedNode;
     } 
     //If the target is to the right of its parent
     else if (ant.getValue() > piggyback.getValue()) {
-        //And if the target has one child to the left
+        //If the target has one child to the left
         if (ant.getLeft() != null) {
             //Connect that child to the right of the target's parent
-            TreeNode temp = remove(ant.getLeft().getValue());
-            ant.setValue(temp.getValue());
-        }
-        //And if the target has one child to the right
+            kidnap(ant, ant.getLeft());
+        } else
+        //If the target has one child to the right
         if (ant.getRight() != null) {
             //Connect that child to the right of the target's parent
-            TreeNode temp = remove(ant.getRight().getValue());
-            ant.setValue(temp.getValue());
+            kidnap(ant, ant.getRight());
         }
 
         return removedNode;
@@ -347,7 +347,6 @@ public class BST
 	System.out.println( "tree init'd: " + arbol );
 
 	//inserting in this order will build a perfect tree
-    /*
 	arbol.insert( 3 );
 	arbol.insert( 1 );
 	arbol.insert( 0 );
@@ -355,6 +354,7 @@ public class BST
 	arbol.insert( 5 );
 	arbol.insert( 4 );
 	arbol.insert( 6 );
+    /*
 	*/
 
 	//insering in this order will build a linked list to left
@@ -369,6 +369,7 @@ public class BST
 	*/
 
     //Custom order
+    /*
 	arbol.insert( 2 );
 	arbol.insert( 1 );
 	arbol.insert( 0 );
@@ -376,7 +377,6 @@ public class BST
 	arbol.insert( 5 );
 	arbol.insert( 3 );
 	arbol.insert( 6 );
-    /*
 	*/
 
 	System.out.println( "tree after insertions:\n" + arbol );
