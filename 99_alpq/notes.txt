@@ -1,0 +1,14 @@
+Gatekeeping Gaslighting Girlbosses: Kevin Xiao, Lauren Lee, Kevin Li
+APCS
+HW99: Some Are More Equal Than Others, Codified
+2022-05-13
+time spent: 0.5 hours
+
+DISCO
+* ArrayList have overloaded remove() methods
+  * remove(Object x) --> returns boolean
+  * remove(int x) --> returns int
+
+QCC
+* When considering the run time complexity, are we considering the original method of ArrayList?
+  * the worst case scenario for add() in an ArrayList is O(n) but when we call add() in ArrayPriorityQueue, add is O(1)
