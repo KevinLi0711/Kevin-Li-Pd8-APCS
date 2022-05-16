@@ -1,0 +1,13 @@
+Gatekeeping Gaslighting Girlbosses
+APCS
+HW101 -- Heap o Trouble
+2022-05-16
+time spent: .5 hours
+
+To promote
+    - Remove the child being promoted and have the parent take its value
+
+1. If the target node has 2 children, promote the lesser child 
+2. If the target node has 1 child, promote the child
+3. If target is leaf, die
+
