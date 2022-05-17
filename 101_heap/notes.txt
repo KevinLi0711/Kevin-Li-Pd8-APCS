@@ -1,0 +1,12 @@
+Gatekeeping Gaslighting Girlbosses
+APCS
+HW101 -- Heap o Trouble
+2022-05-16
+time spent: .5 hours
+
+DISCO
+    - We discovered that it doesn't matter if we insert left or right. Even if the tree looks like a linked list, it's technically a heap
+    - The remove algo for a heap is similar to that for a BST in how it recurses
+
+QCC
+    - Is a linked list sorted in ascending order a min heap

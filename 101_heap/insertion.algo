@@ -1,0 +1,13 @@
+Gatekeeping Gaslighting Girlbosses
+APCS
+HW101 -- Heap o Trouble
+2022-05-16
+time spent: .5 hours
+
+0. If tree is empty, just put it in
+1. If the input >= current node, check the left of the node to see if there is a node. 
+    - If there is a node check if that node is >= input, return to step 1
+    - If there isn't a node, place the input to the left of the current node
+    - If the left child is > input, do step 1 on the right child
+2. If the input < current node, set the left child of the input to the current node
+
