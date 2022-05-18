@@ -18,8 +18,6 @@ QCC
     - Can we do this on a linked list?
  */
 
-//import java.util.ArrayList;
-
 public class ALHeap
 {
 
@@ -45,7 +43,7 @@ public class ALHeap
   public String toString()
   {
       return _heap.toString();
-  }//O(?)
+  }//O(1)
 
 
   /**
@@ -55,7 +53,7 @@ public class ALHeap
   public boolean isEmpty()
   {
       return (_heap.size() <= 0);
-  }//O(?)
+  }//O(1)
 
 
   /**
@@ -66,7 +64,7 @@ public class ALHeap
   public Integer peekMin()
   {
       return _heap.get(1);
-  }//O(?)
+  }//O(1)
 
 
   /**
@@ -87,7 +85,7 @@ public class ALHeap
           swap(index, (index - 1) / 2);
           index = (index - 1) / 2;
       }
-  }//O(?)
+  }//O(logn)
 
 
   /**
@@ -100,36 +98,22 @@ public class ALHeap
    */
   public Integer removeMin()
   {
-
-    if (_heap.size() == 1) {
-        return _heap.remove(0);
-    }
-
     if (_heap.size() == 0) {
         return null;
     }
 
-      Integer returnVal = _heap.get(0);
-      Integer replacement = _heap.remove(_heap.size() - 1); //replacement is last element in array
-      _heap.set(0, replacement);
+    Integer returnVal = _heap.remove(0);
+    Integer index = 0;
+    Integer minChild;
 
-      Integer index = 0;
-      Integer temp;
-      //Integer minChild = minChildPos(index);
+    while (minChildPos(index) != -1) {
+        minChild = minChildPos(index);
+        swap(index, minChild);
+        index = minChild;
+    }
 
-      while (minChildPos(index) != -1 && replacement > _heap.get(minChildPos(index)) ) {
-          if (minChildPos(index) < 0 || minChildPos(index) >= _heap.size() - 1) {
-              return returnVal;
-          }
-
-          temp = minChildPos(index);
-          swap(index, minChildPos(index));
-          index = temp;
-        }
-
-      return returnVal;
-
-  }//O(?)
+    return returnVal;
+  }//O(logn)
 
 
   /**
@@ -140,27 +124,27 @@ public class ALHeap
    */
   private int minChildPos( int pos )
   {
-      int left = 2 * pos + 1;
-      int right = 2 * pos + 2;
-      
-      if ( left >= _heap.size() && right >= _heap.size()) {
-          return -1;
-      }
+    int left = 2 * pos + 1;
+    int right = 2 * pos + 2;
 
-      if (left >= _heap.size()) {
-          return 2 * pos + 2;
-      }
+    if (left >= _heap.size() && right >= _heap.size()) {
+        return -1;
+    }
 
-      if (right >= _heap.size()) {
-        return 2 * pos + 1;
-      }
-      //
-      if (minOf(_heap.get(left), _heap.get(right)).compareTo(_heap.get(left)) == 0 ) {
-          return 2 * pos + 1;
-      } else {
-          return 2 * pos + 2;
-      } 
-  }//O(?)
+    if (left >= _heap.size()) {
+        return right;
+    }
+
+    if (right >= _heap.size()) {
+        return left;
+    }
+
+    if (_heap.get(left) > _heap.get(right)) {
+        return left;
+    } 
+
+    return right;
+  }//O(1)
 
 
   //~~~~~~~~~~~~~ aux helper fxns ~~~~~~~~~~~~~~
