@@ -109,7 +109,7 @@ public class ALHeapMax
    * ALGO:
    * <your clear && concise procedure here>
    */
-  public Integer removeMin()
+  public Integer removeMax()
   {
     if ( _heap.size() == 0 )
       return null;
@@ -200,4 +200,3 @@ public class ALHeapMax
   }
 
 }//end class ALHeap
-

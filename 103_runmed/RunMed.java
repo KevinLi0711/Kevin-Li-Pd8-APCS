@@ -14,16 +14,18 @@ QCC
 */
 public class RunMed {
     /*
-        If greater than median, add to minHeap
-        If less than median add to maxHeap
+    for adding
+0. If both heaps are empty, add the value to maxVals
+1. If the added value is greater than the median, add it to maxVals
+2. If the added value is less than the median, add it to minVals
+3. If adding the value would make the difference in size of the two heaps be > 1, remove the root of the larger heap and add it to the smaller
 
-        If there is an odd number of values, return the root 
-        If there is an even number of values, take the mean of the roots of minHeap and maxHeap
-
-        If it's the first element added in, set median to whatever you put in
+for getting the median
+1. If the size of the heaps are the same, then return the average of the two roots
+2. If the size of the heaps are different, return the root of the larger heap
     */
-    ALHeapMax minVals;
-    ALHeapMin maxVals;
+    public ALHeapMax minVals;
+    public ALHeapMin maxVals;
 
     public RunMed() {
         maxVals = new ALHeapMin();
@@ -47,26 +49,19 @@ public class RunMed {
         //If both heaps are empty, just add the value to min
         if (maxVals.isEmpty() && minVals.isEmpty()) {
             maxVals.add(newVal);
-        }
-
-        if (newVal == maxVals.peekMin() || newVal == minVals.peekMax()) {
-            if (maxVals.size() < minVals.size()) {
-                maxVals.add(newVal);
-            } else {
-                minVals.add(newVal);
-            }
-        }
-
+        } 
         //If the value is greater than median, add it into the minHeap (maxVals). Otherwise, put it in
         else if (newVal > getMedian()) {
             //if you are adding to maxVals, and maxVals has a higher size, add the root of maxVals into minVals to balance things out
             if (maxVals.size() > minVals.size()) {
+                System.out.println("min of maxVal moved");
                 minVals.add(maxVals.removeMin());
             }
             maxVals.add(newVal);
         } else {
             if (minVals.size() > maxVals.size()) {
-                minVals.add(maxVals.removeMin());
+                System.out.println("max of minVal moved");
+                maxVals.add(minVals.removeMax());
             }
             minVals.add(newVal);
         }
@@ -75,6 +70,3 @@ public class RunMed {
     }
 
 }
-                                   
-                                    
-                                    

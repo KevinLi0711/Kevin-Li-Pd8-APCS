@@ -16,9 +16,10 @@
    (input.nums provided; must be in same dir)
 
    -------------------------
-   Clyde "Thluffy" Sinclair
+   Gatekeeping Girlboss Gremlins: Lauren Lee, Kevin Li, Kevin Xiao
    APCS
-   2018-05-17
+   HW103 -- Erica’s Friends, Hugo, and The One in the Middle
+   time spent: 1 hours
 */
 
 import java.util.Scanner;
@@ -44,6 +45,8 @@ public class RunMedDriver
         System.out.print("this many ints have been seen: " + count + "\n");
 
         r.add(n);
+        //System.out.println("minVals: " + r.minVals);
+        //System.out.println("maxVals: " + r.maxVals);
         median = r.getMedian();
         System.out.print("median is now " + median + "\n");
       } catch (Exception e) {

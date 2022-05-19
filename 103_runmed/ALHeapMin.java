@@ -1,4 +1,8 @@
 /**
+Gatekeeping Girlboss Gremlins: Lauren Lee, Kevin Li, Kevin Xiao
+APCS
+HW103 -- Erica’s Friends, Hugo, and The One in the Middle
+time spent: 1 hour
  * class ALHeap
  * Implements a min heap using an ArrayList as underlying container
  */
@@ -29,7 +33,7 @@ public class ALHeapMin
   public String toString()
   {
     //simple version:
-    return _heap.toString(); 
+    return _heap.toString();
 
     //prettier version:
     /*
