@@ -1,0 +1,9 @@
+for adding
+0. If both heaps are empty, add the value to maxVals
+1. If the added value is greater than the median, add it to maxVals
+2. If the added value is less than the median, add it to minVals
+3. If adding the value would make the difference in size of the two heaps be > 1, remove the root of the larger heap and add it to the smaller
+
+for getting the median
+1. If the size of the heaps are the same, then return the average of the two roots
+2. If the size of the heaps are different, return the root of the larger heap
