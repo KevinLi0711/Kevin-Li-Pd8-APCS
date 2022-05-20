@@ -66,10 +66,6 @@ public class Heapsort
         //if i am < greatest child, swap with that child
         else {
             swap(pos, maxChildPos, data);
-            for (int i : data) {
-                System.out.print(i + " ");
-              }
-            System.out.println("");
             pos = maxChildPos;
         }
       }
