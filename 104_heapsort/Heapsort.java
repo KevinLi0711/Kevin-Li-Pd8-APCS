@@ -44,7 +44,10 @@ public class Heapsort
       int tmp = data[0];
 
       //swap last leaf (rightmost on bottom level) into root pos
+      System.out.println("leaf: " + lastLeaf);
+      System.out.println("swap " + data[0] + " " + data[lastLeaf]);
       swap(0, lastLeaf, data);
+      printArr(data);
 
       //walk now-out-of-place root node down the tree...
       int pos = 0;
@@ -55,7 +58,7 @@ public class Heapsort
 
         //choose child w/ max value, or check for child
         //minChildPos = minChildPos(pos, lastLeaf, data);
-        maxChildPos = maxChildPos(pos, lastLeaf, data);
+        maxChildPos = maxChildPos(pos, lastLeaf - 1, data);
 
         //if no children, then i've walked far enough
         if ( maxChildPos == -1 )
@@ -70,8 +73,11 @@ public class Heapsort
         }
       }
 
-      //overwrite last leaf with old root val
-      //data[lastLeaf] = tmp;
+      System.out.print("\n");
+      printArr(data);
+
+      //overwrite last leaf with old root vals
+      data[lastLeaf] = tmp;
     }
 
 
@@ -139,7 +145,7 @@ public class Heapsort
     int rc = 2*pos + 2; //index of right child
 
     //pos is not in the heap or pos is a leaf position
-    if ( rc >= last /*|| lc > a.length*/ )
+    if ( lc > last )
       retVal = -1;
     //if no right child, then left child is only option for min
     else if ( rc > last )
@@ -162,7 +168,7 @@ public class Heapsort
     int rc = 2*pos + 2; //index of right child
 
     //pos is not in the heap or pos is a leaf position
-    if ( rc >= last /*|| lc > a.length*/ ) 
+    if ( lc > last ) 
       retVal = -1;
     //if no right child, then left child is only option for min
     else if ( rc > last )
