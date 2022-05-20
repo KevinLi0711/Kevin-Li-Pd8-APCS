@@ -32,27 +32,29 @@ public class RunMedDriver
     RunMed r = new RunMed();
 
     int n;
-    double median;
+    double median = 0;
     int count = 0;
     Scanner sc = new Scanner( System.in );
 
     while( sc.hasNextInt() ) {
       try {
         n = sc.nextInt();
-        System.out.print("read " + n + "\n");
+        //System.out.print("read " + n + "\n");
 
         count++;
-        System.out.print("this many ints have been seen: " + count + "\n");
+        //System.out.print("this many ints have been seen: " + count + "\n");
 
         r.add(n);
         //System.out.println("minVals: " + r.minVals);
         //System.out.println("maxVals: " + r.maxVals);
         median = r.getMedian();
-        System.out.print("median is now " + median + "\n");
+        //System.out.print("median is now " + median + "\n");
       } catch (Exception e) {
         System.err.println("BOOP! probs w yer input:\n"+e);
       }
     }
+
+    System.out.println(median);
 
   }//end main
 

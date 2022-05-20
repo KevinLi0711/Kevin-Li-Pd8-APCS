@@ -54,13 +54,13 @@ for getting the median
         else if (newVal > getMedian()) {
             //if you are adding to maxVals, and maxVals has a higher size, add the root of maxVals into minVals to balance things out
             if (maxVals.size() > minVals.size()) {
-                System.out.println("min of maxVal moved");
+                //System.out.println("min of maxVal moved");
                 minVals.add(maxVals.removeMin());
             }
             maxVals.add(newVal);
         } else {
             if (minVals.size() > maxVals.size()) {
-                System.out.println("max of minVal moved");
+                //System.out.println("max of minVal moved");
                 maxVals.add(minVals.removeMax());
             }
             minVals.add(newVal);
